@@ -1,0 +1,4123 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Modul digital Management of Change (MOC) untuk mata kuliah Keselamatan Pabrik Kimia." />
+  <title>Management of Change (MOC) | Keselamatan Pabrik Kimia</title>
+
+  <style>
+    :root {
+      --navy:#17324d;
+      --navy-2:#0f2539;
+      --teal:#2e8f8a;
+      --teal-2:#24736f;
+      --gold:#e5a93e;
+      --red:#c94f46;
+      --blue:#3477a8;
+      --ink:#28323b;
+      --muted:#66737f;
+      --bg:#f3f6f8;
+      --card:#ffffff;
+      --line:#dce4e9;
+      --soft:#eef4f6;
+      --shadow:0 14px 36px rgba(20,48,72,.08);
+      --radius:20px;
+    }
+
+    body.dark {
+      --ink:#e8eef2;
+      --muted:#aebac4;
+      --bg:#0d1720;
+      --card:#13212d;
+      --line:#263846;
+      --soft:#172a37;
+      --navy:#7ab8df;
+      --navy-2:#d3ebf8;
+      --teal:#65c0bb;
+      --teal-2:#86d8d4;
+      --shadow:0 16px 36px rgba(0,0,0,.2);
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.65;
+    }
+
+    a {
+      color:inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font:inherit;
+    }
+
+    button {
+      cursor:pointer;
+    }
+
+    .skip-link {
+      position:absolute;
+      left:-999px;
+      top:0;
+      background:#fff;
+      color:#000;
+      padding:.6rem 1rem;
+      z-index:9999;
+    }
+
+    .skip-link:focus {
+      left:1rem;
+      top:1rem;
+    }
+
+    /* ======================
+       TOP BAR
+    ====================== */
+
+    .topbar {
+      position:sticky;
+      top:0;
+      z-index:50;
+      height:72px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:0 22px;
+      background:color-mix(in srgb,var(--card) 92%,transparent);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .brand {
+      display:flex;
+      flex-direction:column;
+      line-height:1.15;
+      min-width:0;
+    }
+
+    .brand strong {
+      font-size:1.02rem;
+      color:var(--navy-2);
+    }
+
+    .brand-kicker {
+      font-size:.7rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      color:var(--teal);
+      margin-bottom:4px;
+    }
+
+    .icon-btn {
+      margin-left:auto;
+      border:1px solid var(--line);
+      background:var(--card);
+      color:var(--ink);
+      width:42px;
+      height:42px;
+      border-radius:12px;
+    }
+
+    .menu-btn {
+      display:none;
+      margin-left:0;
+    }
+
+    /* ======================
+       PAGE LAYOUT
+    ====================== */
+
+    .app-shell {
+      display:grid;
+      grid-template-columns:268px minmax(0,1fr);
+      max-width:1600px;
+      margin:0 auto;
+    }
+
+    .sidebar {
+      position:sticky;
+      top:72px;
+      height:calc(100vh - 72px);
+      border-right:1px solid var(--line);
+      background:var(--card);
+      overflow:auto;
+    }
+
+    .sidebar-inner {
+      padding:24px 18px;
+    }
+
+    .course-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:5px;
+      color:var(--muted);
+      font-size:.78rem;
+      margin-bottom:18px;
+    }
+
+    .nav-list {
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .nav-list a {
+      text-decoration:none;
+      padding:9px 12px;
+      border-radius:10px;
+      color:var(--muted);
+      font-size:.9rem;
+      font-weight:650;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.active {
+      background:var(--soft);
+      color:var(--teal-2);
+    }
+
+    .progress-card {
+      margin-top:24px;
+      padding:15px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--soft);
+    }
+
+    .progress-row {
+      display:flex;
+      justify-content:space-between;
+      font-size:.82rem;
+      margin-bottom:8px;
+    }
+
+    .progress-track {
+      height:7px;
+      background:var(--line);
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .progress-bar {
+      height:100%;
+      width:0;
+      background:linear-gradient(90deg,var(--teal),var(--gold));
+      transition:width .25s;
+    }
+
+    .text-btn {
+      border:0;
+      background:transparent;
+      color:var(--teal-2);
+      font-weight:700;
+      padding:8px 0 0;
+      font-size:.78rem;
+    }
+
+    main {
+      min-width:0;
+    }
+
+    .section {
+      max-width:1140px;
+      margin:0 auto;
+      padding:86px 52px;
+      border-bottom:1px solid var(--line);
+      scroll-margin-top:72px;
+    }
+
+    .section-head {
+      max-width:790px;
+      margin-bottom:30px;
+    }
+
+    .section-head h2 {
+      font-size:clamp(1.8rem,3vw,2.65rem);
+      line-height:1.15;
+      margin:.35rem 0 .7rem;
+      color:var(--navy-2);
+    }
+
+    .section-head p {
+      color:var(--muted);
+      font-size:1.03rem;
+      margin:0;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      font-size:.73rem;
+      letter-spacing:.13em;
+      font-weight:900;
+      color:var(--teal);
+      text-transform:uppercase;
+    }
+
+    /* ======================
+       HERO
+    ====================== */
+
+    .hero {
+      min-height:calc(100vh - 72px);
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
+      align-items:center;
+      gap:50px;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          color-mix(in srgb,var(--teal) 13%,transparent),
+          transparent 32%
+        );
+      max-width:none;
+      padding-left:max(52px,calc((100vw - 1400px)/2));
+      padding-right:max(52px,calc((100vw - 1400px)/2));
+    }
+
+    .hero h1 {
+      font-size:clamp(3rem,7vw,6.7rem);
+      line-height:.93;
+      margin:.7rem 0 1rem;
+      letter-spacing:-.055em;
+      color:var(--navy-2);
+    }
+
+    .hero h1 span {
+      display:block;
+      color:var(--teal);
+    }
+
+    .lead {
+      font-size:1.18rem;
+      color:var(--muted);
+      max-width:700px;
+    }
+
+    .hero-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:28px 0 34px;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:.72rem 1.1rem;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid transparent;
+    }
+
+    .btn.primary {
+      background:var(--teal);
+      color:white;
+    }
+
+    .btn.secondary {
+      background:var(--card);
+      color:var(--navy-2);
+      border-color:var(--line);
+    }
+
+    .btn.ghost {
+      background:transparent;
+      color:var(--muted);
+      border-color:var(--line);
+    }
+
+    .meta-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      max-width:720px;
+    }
+
+    .meta-grid div {
+      padding:12px 14px;
+      border-left:3px solid var(--line);
+      background:color-mix(in srgb,var(--card) 78%,transparent);
+      border-radius:0 10px 10px 0;
+    }
+
+    .meta-grid small {
+      display:block;
+      color:var(--muted);
+      font-size:.72rem;
+    }
+
+    .meta-grid strong {
+      font-size:.87rem;
+      color:var(--ink);
+    }
+
+    .hero-visual {
+      position:relative;
+      aspect-ratio:1;
+      max-width:480px;
+      margin:auto;
+    }
+
+    .core {
+      position:absolute;
+      inset:31%;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:linear-gradient(145deg,var(--navy),var(--teal));
+      color:#fff;
+      font-size:clamp(2rem,5vw,4rem);
+      font-weight:900;
+      box-shadow:var(--shadow);
+    }
+
+    .orbit {
+      position:absolute;
+      border:1px solid color-mix(in srgb,var(--teal) 55%,var(--line));
+      border-radius:50%;
+    }
+
+    .orbit-1 {
+      inset:13%;
+    }
+
+    .orbit-2 {
+      inset:2%;
+      border-style:dashed;
+    }
+
+    .tag {
+      position:absolute;
+      padding:8px 11px;
+      border-radius:10px;
+      background:var(--card);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.08em;
+    }
+
+    .t1 { top:8%; left:35%; }
+    .t2 { right:0; top:45%; }
+    .t3 { bottom:8%; left:38%; }
+    .t4 { left:0; top:46%; }
+
+    /* ======================
+       CONTENT COMPONENTS
+    ====================== */
+
+    .outcome-grid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .outcome {
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .outcome span {
+      font-size:.8rem;
+      color:var(--teal);
+      font-weight:900;
+    }
+
+    .outcome h3 {
+      margin:.4rem 0;
+    }
+
+    .outcome p {
+      margin:0;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .panel {
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--card);
+    }
+
+    .panel h3 {
+      margin-top:0;
+      color:var(--navy-2);
+    }
+
+    .panel p {
+      margin-bottom:0;
+      color:var(--muted);
+    }
+
+    .panel.accent {
+      border-left:5px solid var(--teal);
+    }
+
+    .accent-yellow {
+      border-left:5px solid var(--gold);
+    }
+
+    .accent-red {
+      border-left:5px solid var(--red);
+    }
+
+    .split {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-bottom:20px;
+    }
+
+    .concept-grid {
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+      margin:18px 0;
+    }
+
+    .concept-card {
+      padding:18px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+    }
+
+    .concept-card h3 {
+      font-size:1rem;
+      margin:0 0 8px;
+      color:var(--navy-2);
+    }
+
+    .concept-card p {
+      font-size:.85rem;
+      margin:0;
+      color:var(--muted);
+    }
+
+    .rik-box {
+      display:grid;
+      grid-template-columns:1.4fr .8fr;
+      gap:20px;
+      padding:24px;
+      border-radius:var(--radius);
+      background:
+        linear-gradient(
+          135deg,
+          color-mix(in srgb,var(--teal) 12%,var(--card)),
+          var(--card)
+        );
+      border:1px solid var(--line);
+    }
+
+    .badge {
+      display:inline-block;
+      font-size:.68rem;
+      font-weight:900;
+      letter-spacing:.1em;
+      color:#fff;
+      background:var(--teal);
+      padding:5px 8px;
+      border-radius:7px;
+    }
+
+    .badge.yellow {
+      background:var(--gold);
+      color:#362500;
+    }
+
+    .badge.red {
+      background:var(--red);
+    }
+
+    .rik-checks {
+      display:grid;
+      gap:8px;
+      align-content:center;
+    }
+
+    .rik-checks label {
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    .timeline {
+      display:grid;
+      gap:8px;
+    }
+
+    .step {
+      display:grid;
+      grid-template-columns:52px 1fr;
+      gap:13px;
+      align-items:center;
+      padding:10px 14px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+
+    .step > span {
+      display:grid;
+      place-items:center;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background:var(--soft);
+      color:var(--teal-2);
+      font-weight:900;
+    }
+
+    .step strong {
+      display:block;
+      color:var(--navy-2);
+    }
+
+    .step small {
+      color:var(--muted);
+    }
+
+    .callout {
+      padding:17px 20px;
+      margin:18px 0;
+      border-radius:14px;
+      background:color-mix(in srgb,var(--gold) 16%,var(--card));
+      border-left:4px solid var(--gold);
+    }
+
+    .table-wrap {
+      width:100%;
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--card);
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      min-width:620px;
+    }
+
+    th,
+    td {
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      vertical-align:top;
+      font-size:.9rem;
+    }
+
+    th {
+      background:var(--navy-2);
+      color:var(--card);
+      font-size:.78rem;
+      letter-spacing:.03em;
+    }
+
+    body.dark th {
+      background:#1f425c;
+      color:#fff;
+    }
+
+    tbody tr:last-child td {
+      border-bottom:0;
+    }
+
+    .risk-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .risk-grid article,
+    .comm-grid div {
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .risk-grid strong,
+    .comm-grid strong {
+      display:block;
+      color:var(--navy-2);
+      margin-bottom:4px;
+    }
+
+    .risk-grid span,
+    .comm-grid span {
+      font-size:.86rem;
+      color:var(--muted);
+    }
+
+    .two-col-list {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .two-col-list > div {
+      padding:20px;
+      border-radius:16px;
+      background:var(--card);
+      border:1px solid var(--line);
+    }
+
+    .two-col-list h3 {
+      margin-top:0;
+    }
+
+    .two-col-list ul {
+      margin-bottom:0;
+      color:var(--muted);
+    }
+
+    .comm-grid {
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .evidence-chain {
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:22px;
+    }
+
+    .evidence-chain span {
+      padding:9px 12px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:var(--card);
+      font-size:.82rem;
+      font-weight:800;
+    }
+
+    .evidence-chain b {
+      color:var(--teal);
+    }
+
+    .learning-box {
+      margin-top:20px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--card);
+      overflow:hidden;
+    }
+
+    .learning-box summary {
+      cursor:pointer;
+      padding:16px 18px;
+      font-weight:850;
+      color:var(--navy-2);
+      background:var(--soft);
+    }
+
+    .learning-box[open] summary {
+      border-bottom:1px solid var(--line);
+    }
+
+    .learning-box > *:not(summary) {
+      margin:16px;
+    }
+
+    .clean-list {
+      color:var(--muted);
+    }
+
+    .case-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .case-card {
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--card);
+    }
+
+    .case-card h3 {
+      margin:.4rem 0;
+      color:var(--navy-2);
+    }
+
+    .case-card p {
+      margin:0;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .case-no {
+      font-size:.7rem;
+      font-weight:900;
+      color:var(--teal);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .incident-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .incident-grid div {
+      padding:14px;
+      border-radius:12px;
+      background:var(--soft);
+    }
+
+    .incident-grid p {
+      margin:.3rem 0 0;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    .assignment-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .assignment-grid article {
+      padding:20px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+    }
+
+    .assignment-grid h3 {
+      margin-top:0;
+    }
+
+    .assignment-grid p {
+      margin-bottom:0;
+      color:var(--muted);
+    }
+
+    /* ======================
+       INTERACTIVE
+    ====================== */
+
+    .complete-btn {
+      margin-top:22px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background:var(--card);
+      color:var(--teal-2);
+      font-weight:850;
+    }
+
+    .complete-btn.done {
+      background:var(--teal);
+      color:#fff;
+      border-color:var(--teal);
+    }
+
+    .quiz-form {
+      display:grid;
+      gap:14px;
+    }
+
+    .question {
+      padding:20px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+    }
+
+    .question h3 {
+      font-size:1rem;
+      margin:0 0 12px;
+      color:var(--navy-2);
+    }
+
+    .option {
+      display:flex;
+      gap:9px;
+      align-items:flex-start;
+      padding:8px 9px;
+      border-radius:10px;
+    }
+
+    .option:hover {
+      background:var(--soft);
+    }
+
+    .option input {
+      margin-top:5px;
+    }
+
+    .quiz-submit {
+      margin-top:8px;
+    }
+
+    .quiz-result {
+      margin-top:18px;
+      padding:20px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:var(--card);
+    }
+
+    .quiz-result.pass {
+      border-left:5px solid var(--teal);
+    }
+
+    .quiz-result.warn {
+      border-left:5px solid var(--gold);
+    }
+
+    .quiz-result.fail {
+      border-left:5px solid var(--red);
+    }
+
+    .checklist-actions {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+
+    .checklist-table select,
+    .checklist-table input {
+      width:100%;
+      min-width:110px;
+      border:1px solid var(--line);
+      background:var(--card);
+      color:var(--ink);
+      border-radius:8px;
+      padding:8px;
+    }
+
+    .checklist-table td:nth-child(1) {
+      width:56px;
+    }
+
+    .checklist-table td:nth-child(3) {
+      width:150px;
+    }
+
+    .checklist-table td:nth-child(4) {
+      min-width:260px;
+    }
+
+    .search-input {
+      width:100%;
+      max-width:520px;
+      padding:13px 15px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:var(--card);
+      color:var(--ink);
+      margin-bottom:18px;
+    }
+
+    .glossary-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .glossary-item {
+      padding:17px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+
+    .glossary-item strong {
+      display:block;
+      color:var(--navy-2);
+      margin-bottom:4px;
+    }
+
+    .glossary-item span {
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    .references {
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--card);
+    }
+
+    .references p {
+      margin:.45rem 0;
+      color:var(--muted);
+    }
+
+    .closing-card {
+      margin-top:22px;
+      padding:28px;
+      border-radius:20px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy-2),
+          color-mix(in srgb,var(--teal) 85%,#000)
+        );
+      color:#fff;
+    }
+
+    .closing-card span {
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.12em;
+    }
+
+    .closing-card blockquote {
+      font-size:clamp(1.3rem,3vw,2rem);
+      line-height:1.35;
+      margin:10px 0 0;
+    }
+
+    .site-footer {
+      padding:28px 52px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.8rem;
+    }
+
+    .site-footer p {
+      margin:3px;
+    }
+
+    /* ======================
+       RESPONSIVE
+    ====================== */
+
+    @media (max-width:1050px) {
+      .app-shell {
+        grid-template-columns:220px minmax(0,1fr);
+      }
+
+      .section {
+        padding:70px 36px;
+      }
+
+      .outcome-grid {
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .concept-grid {
+        grid-template-columns:repeat(3,1fr);
+      }
+
+      .case-grid {
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .comm-grid {
+        grid-template-columns:repeat(3,1fr);
+      }
+
+      .hero {
+        grid-template-columns:1fr;
+      }
+
+      .hero-visual {
+        display:none;
+      }
+    }
+
+    @media (max-width:760px) {
+      .menu-btn {
+        display:inline-grid;
+        place-items:center;
+      }
+
+      .app-shell {
+        display:block;
+      }
+
+      .sidebar {
+        position:fixed;
+        left:0;
+        top:72px;
+        bottom:0;
+        width:min(86vw,310px);
+        height:auto;
+        z-index:45;
+        transform:translateX(-103%);
+        transition:transform .22s ease;
+        box-shadow:20px 0 40px rgba(0,0,0,.16);
+      }
+
+      .sidebar.open {
+        transform:translateX(0);
+      }
+
+      .section {
+        padding:58px 20px;
+      }
+
+      .hero {
+        min-height:auto;
+        padding:70px 20px;
+      }
+
+      .hero h1 {
+        font-size:3.5rem;
+      }
+
+      .meta-grid,
+      .split,
+      .rik-box,
+      .two-col-list,
+      .assignment-grid,
+      .incident-grid {
+        grid-template-columns:1fr;
+      }
+
+      .concept-grid,
+      .risk-grid,
+      .case-grid,
+      .glossary-grid,
+      .comm-grid {
+        grid-template-columns:1fr 1fr;
+      }
+
+      .outcome-grid {
+        grid-template-columns:1fr;
+      }
+
+      .site-footer {
+        padding:26px 20px;
+      }
+
+      .brand-kicker {
+        display:none;
+      }
+    }
+
+    @media (max-width:470px) {
+      .concept-grid,
+      .risk-grid,
+      .case-grid,
+      .glossary-grid,
+      .comm-grid {
+        grid-template-columns:1fr;
+      }
+
+      .hero h1 {
+        font-size:2.9rem;
+      }
+
+      .topbar {
+        padding:0 12px;
+      }
+
+      .brand strong {
+        font-size:.9rem;
+      }
+
+      .evidence-chain b {
+        display:none;
+      }
+
+      .evidence-chain span {
+        width:100%;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .sidebar,
+      .hero-actions,
+      .complete-btn,
+      .checklist-actions,
+      .site-footer {
+        display:none !important;
+      }
+
+      .app-shell {
+        display:block;
+      }
+
+      .section {
+        max-width:none;
+        padding:18px 0;
+        border:0;
+        break-inside:avoid;
+      }
+
+      .hero {
+        min-height:0;
+        padding:0;
+        display:block;
+      }
+
+      .hero-visual {
+        display:none;
+      }
+
+      .table-wrap {
+        overflow:visible;
+      }
+
+      .checklist-wrap table {
+        min-width:0;
+      }
+
+      body {
+        background:white;
+        color:black;
+      }
+
+      .checklist-table input,
+      .checklist-table select {
+        border:1px solid #aaa;
+        color:black;
+        background:white;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">
+    Lewati ke konten utama
+  </a>
+
+  <header class="topbar">
+
+    <button
+      class="icon-btn menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Buka navigasi"
+      aria-expanded="false">
+      ☰
+    </button>
+
+    <div class="brand">
+      <span class="brand-kicker">
+        KESELAMATAN PABRIK KIMIA
+      </span>
+
+      <strong>
+        Management of Change (MOC)
+      </strong>
+    </div>
+
+    <button
+      class="icon-btn"
+      id="themeBtn"
+      type="button"
+      aria-label="Ganti tema">
+      ◐
+    </button>
+
+  </header>
+
+  <div class="app-shell">
+
+    <!-- ======================
+         SIDEBAR
+    ====================== -->
+
+    <aside
+      class="sidebar"
+      id="sidebar"
+      aria-label="Navigasi modul">
+
+      <div class="sidebar-inner">
+
+        <div class="course-meta compact">
+          <span>TK 141132</span>
+          <span>•</span>
+          <span>Semester VII</span>
+          <span>•</span>
+          <span>2 SKS</span>
+        </div>
+
+        <nav
+          class="nav-list"
+          id="navList">
+
+          <a href="#beranda" class="active">
+            Beranda
+          </a>
+
+          <a href="#capaian">
+            Capaian
+          </a>
+
+          <a href="#konsep">
+            Konsep Dasar
+          </a>
+
+          <a href="#alur">
+            Alur MOC
+          </a>
+
+          <a href="#review">
+            Impact & Review
+          </a>
+
+          <a href="#temporary">
+            Temporary & Emergency
+          </a>
+
+          <a href="#closure">
+            Implementasi & Closure
+          </a>
+
+          <a href="#contoh">
+            Contoh & Case Study
+          </a>
+
+          <a href="#latihan">
+            Latihan
+          </a>
+
+          <a href="#quiz">
+            Tes Formatif
+          </a>
+
+          <a href="#checklist">
+            Screening Checklist
+          </a>
+
+          <a href="#glosarium">
+            Glosarium
+          </a>
+
+          <a href="#referensi">
+            Referensi
+          </a>
+
+        </nav>
+
+        <div class="progress-card">
+
+          <div class="progress-row">
+            <span>Progress belajar</span>
+            <strong id="progressLabel">0%</strong>
+          </div>
+
+          <div class="progress-track">
+            <div
+              id="progressBar"
+              class="progress-bar">
+            </div>
+          </div>
+
+          <button
+            id="resetProgress"
+            class="text-btn"
+            type="button">
+            Reset progress
+          </button>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- ======================
+         MAIN
+    ====================== -->
+
+    <main id="main">
+
+      <!-- HERO -->
+
+      <section
+        id="beranda"
+        class="hero section observed">
+
+        <div class="hero-copy">
+
+          <span class="eyebrow">
+            MODUL PEMBELAJARAN DIGITAL
+          </span>
+
+          <h1>
+            Management of Change
+            <span>(MOC)</span>
+          </h1>
+
+          <p class="lead">
+            Belajar melihat perubahan bukan sekadar sebagai
+            pekerjaan teknis, tetapi sebagai perubahan terhadap
+            asumsi desain, cara operasi, safeguards, prosedur,
+            dan manusia.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn primary"
+              href="#konsep">
+              Mulai belajar
+            </a>
+
+            <a
+              class="btn secondary"
+              href="#quiz">
+              Langsung tes formatif
+            </a>
+
+          </div>
+
+          <div class="meta-grid">
+
+            <div>
+              <small>Mata Kuliah</small>
+              <strong>Keselamatan Pabrik Kimia</strong>
+            </div>
+
+            <div>
+              <small>Program Studi</small>
+              <strong>Teknik Kimia</strong>
+            </div>
+
+            <div>
+              <small>Penyusun</small>
+              <strong>Ratri Puspita Wardani, S.T., M.Eng.</strong>
+            </div>
+
+            <div>
+              <small>Institusi</small>
+              <strong>UPN “Veteran” Jawa Timur</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div
+          class="hero-visual"
+          aria-hidden="true">
+
+          <div class="orbit orbit-1"></div>
+          <div class="orbit orbit-2"></div>
+
+          <div class="core">
+            MOC
+          </div>
+
+          <span class="tag t1">
+            CHANGE
+          </span>
+
+          <span class="tag t2">
+            HAZARD
+          </span>
+
+          <span class="tag t3">
+            SAFEGUARD
+          </span>
+
+          <span class="tag t4">
+            EVIDENCE
+          </span>
+
+        </div>
+
+      </section>
+
+      <!-- ======================
+           CAPAIAN
+      ====================== -->
+
+      <section
+        id="capaian"
+        class="section observed learn-section"
+        data-section="capaian">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            B. CAPAIAN PEMBELAJARAN UNIT
+          </span>
+
+          <h2>
+            Apa yang harus bisa dilakukan setelah belajar?
+          </h2>
+
+          <p>
+            Fokusnya bukan menghafal form, tetapi mampu
+            mengambil keputusan perubahan secara evidence-based.
+          </p>
+
+        </div>
+
+        <div class="outcome-grid">
+
+          <article class="outcome">
+            <span>01</span>
+            <h3>Memahami</h3>
+            <p>
+              Menjelaskan posisi MOC dalam Process Safety
+              Management dan ruang lingkupnya.
+            </p>
+          </article>
+
+          <article class="outcome">
+            <span>02</span>
+            <h3>Screening</h3>
+            <p>
+              Membedakan change dan replacement in kind
+              serta menentukan kapan MOC diperlukan.
+            </p>
+          </article>
+
+          <article class="outcome">
+            <span>03</span>
+            <h3>Menganalisis</h3>
+            <p>
+              Menilai technical basis, safety impact,
+              safeguards, kebutuhan PHA/risk review,
+              PSI, dan prosedur.
+            </p>
+          </article>
+
+          <article class="outcome">
+            <span>04</span>
+            <h3>Mengendalikan</h3>
+            <p>
+              Menentukan authorization, communication,
+              training, temporary/emergency controls,
+              dan closure evidence.
+            </p>
+          </article>
+
+        </div>
+
+        <details class="learning-box">
+
+          <summary>
+            Keterkaitan MOC dengan elemen PSM
+          </summary>
+
+          <div class="table-wrap">
+
+            <table>
+
+              <thead>
+                <tr>
+                  <th>Elemen</th>
+                  <th>Peran</th>
+                  <th>Contoh keterkaitan</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td>PSI</td>
+                  <td>
+                    Menjaga informasi teknis sesuai kondisi
+                  </td>
+                  <td>
+                    Perubahan equipment dapat memerlukan
+                    update datasheet/P&amp;ID
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>PHA</td>
+                  <td>
+                    Menganalisis hazard
+                  </td>
+                  <td>
+                    Perubahan signifikan dapat memerlukan
+                    hazard review
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Operating Procedures</td>
+                  <td>
+                    Menjaga praktik operasi sesuai kondisi
+                  </td>
+                  <td>
+                    Perubahan valve/configuration dapat
+                    mengubah prosedur
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Training</td>
+                  <td>
+                    Menyiapkan personel terdampak
+                  </td>
+                  <td>
+                    Operator perlu memahami perubahan
+                    sebelum startup
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>PSSR</td>
+                  <td>
+                    Memverifikasi readiness tertentu
+                    sebelum startup
+                  </td>
+                  <td>
+                    MOC dapat menjadi input PSSR pada
+                    fasilitas modifikasi
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Mechanical Integrity</td>
+                  <td>
+                    Memastikan equipment tetap layak
+                  </td>
+                  <td>
+                    Perubahan material/specification
+                    memengaruhi inspection/testing
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </details>
+
+        <button
+          class="complete-btn"
+          data-complete="capaian"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           KONSEP
+      ====================== -->
+
+      <section
+        id="konsep"
+        class="section observed learn-section"
+        data-section="konsep">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            D.1–D.5 • KONSEP DASAR
+          </span>
+
+          <h2>
+            Perubahan kecil pun bisa menggeser basis keselamatan.
+          </h2>
+
+        </div>
+
+        <div class="split">
+
+          <article class="panel accent">
+
+            <h3>
+              Kenapa perubahan perlu dikelola?
+            </h3>
+
+            <p>
+              Sistem proses dibangun di atas asumsi:
+              bahan kimia, temperatur, tekanan,
+              flow rate, material, relief capacity,
+              alarm setting, interlock logic, dan prosedur.
+              Saat satu asumsi berubah, hubungan antarbagian
+              sistem dapat ikut berubah.
+            </p>
+
+          </article>
+
+          <article class="panel">
+
+            <h3>
+              Definisi kerja MOC
+            </h3>
+
+            <p>
+              MOC adalah proses sistematis untuk memastikan
+              perubahan yang relevan terhadap keselamatan
+              proses dinilai dan dikendalikan sebelum diterapkan.
+              Fokusnya adalah kualitas keputusan dan keterlacakan
+              tindakan.
+            </p>
+
+          </article>
+
+        </div>
+
+        <div class="concept-grid">
+
+          <article class="concept-card">
+            <h3>Process chemicals</h3>
+            <p>
+              Perubahan bahan baku, komposisi,
+              grade, compatibility, atau chemistry.
+            </p>
+          </article>
+
+          <article class="concept-card">
+            <h3>Technology</h3>
+            <p>
+              Perubahan process condition,
+              control logic, operating envelope,
+              atau metode proses.
+            </p>
+          </article>
+
+          <article class="concept-card">
+            <h3>Equipment</h3>
+            <p>
+              Perubahan material, size, rating,
+              geometry, specification, atau fungsi equipment.
+            </p>
+          </article>
+
+          <article class="concept-card">
+            <h3>Procedures</h3>
+            <p>
+              Perubahan startup, shutdown,
+              alarm response, isolation, maintenance,
+              atau operating practice.
+            </p>
+          </article>
+
+          <article class="concept-card">
+            <h3>Facilities</h3>
+            <p>
+              Perubahan konfigurasi atau fasilitas
+              yang memengaruhi covered process.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="rik-box">
+
+          <div>
+
+            <span class="badge">
+              REPLACEMENT IN KIND
+            </span>
+
+            <h3>
+              RIK bukan berarti “fungsinya sama”.
+            </h3>
+
+            <p>
+              RIK adalah penggantian yang tetap memenuhi
+              <strong>design specification</strong>.
+
+              Material, size/rating, geometry/design,
+              function, design basis, metallurgy,
+              atau karakteristik keselamatan yang berubah
+              perlu discreening ulang.
+            </p>
+
+          </div>
+
+          <div class="rik-checks">
+
+            <label>
+              <input type="checkbox" disabled checked>
+              Material sesuai?
+            </label>
+
+            <label>
+              <input type="checkbox" disabled checked>
+              Size/rating sesuai?
+            </label>
+
+            <label>
+              <input type="checkbox" disabled checked>
+              Geometry/design sesuai?
+            </label>
+
+            <label>
+              <input type="checkbox" disabled checked>
+              Function sesuai?
+            </label>
+
+          </div>
+
+        </div>
+
+        <button
+          class="complete-btn"
+          data-complete="konsep"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           ALUR MOC
+      ====================== -->
+
+      <section
+        id="alur"
+        class="section observed learn-section"
+        data-section="alur">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            D.6–D.8 • ALUR MOC
+          </span>
+
+          <h2>
+            Dari “apa yang berubah?” sampai technical basis.
+          </h2>
+
+        </div>
+
+        <div class="timeline">
+
+          <div class="step">
+            <span>1</span>
+            <div>
+              <strong>Identify</strong>
+              <small>Apa yang berubah?</small>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>2</span>
+            <div>
+              <strong>Screen</strong>
+              <small>Apakah MOC diperlukan?</small>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>3</span>
+            <div>
+              <strong>Define Technical Basis</strong>
+              <small>
+                Existing, proposed, alasan,
+                design constraints.
+              </small>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>4</span>
+            <div>
+              <strong>Assess Impact</strong>
+              <small>
+                Apa dampak keselamatannya?
+              </small>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>5</span>
+            <div>
+              <strong>Safeguards / Actions</strong>
+              <small>
+                Apa yang harus dikendalikan?
+              </small>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>6</span>
+            <div>
+              <strong>Authorize</strong>
+              <small>
+                Siapa yang berwenang?
+              </small>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>7</span>
+            <div>
+              <strong>Communicate / Train</strong>
+              <small>
+                Siapa yang harus siap?
+              </small>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>8</span>
+            <div>
+              <strong>Implement</strong>
+              <small>
+                Apa evidence implementasi?
+              </small>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>9</span>
+            <div>
+              <strong>Verify / Close</strong>
+              <small>
+                Apakah kondisi final sesuai?
+              </small>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="callout">
+          <strong>Screening adalah gerbang pertama.</strong>
+          Keputusan “MOC tidak diperlukan” juga harus
+          punya alasan yang terdokumentasi.
+        </div>
+
+        <div class="table-wrap">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Komponen Technical Basis</th>
+                <th>Contoh evidence</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>Existing condition</td>
+                <td>P&amp;ID / as-built / datasheet</td>
+              </tr>
+
+              <tr>
+                <td>Proposed condition</td>
+                <td>Design drawing / specification</td>
+              </tr>
+
+              <tr>
+                <td>Reason</td>
+                <td>
+                  Reliability / production /
+                  safety justification
+                </td>
+              </tr>
+
+              <tr>
+                <td>Engineering basis</td>
+                <td>
+                  Calculation / vendor data / code
+                </td>
+              </tr>
+
+              <tr>
+                <td>Limits</td>
+                <td>
+                  Operating envelope dan constraints
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <button
+          class="complete-btn"
+          data-complete="alur"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           IMPACT REVIEW
+      ====================== -->
+
+      <section
+        id="review"
+        class="section observed learn-section"
+        data-section="review">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            D.9–D.12 • IMPACT & REVIEW
+          </span>
+
+          <h2>
+            Jangan hanya melihat komponen baru.
+            Lihat sistem yang terdampak.
+          </h2>
+
+        </div>
+
+        <div class="risk-grid">
+
+          <article>
+            <strong>Process hazard</strong>
+            <span>Apakah hazard berubah?</span>
+          </article>
+
+          <article>
+            <strong>Containment</strong>
+            <span>Apakah peluang release berubah?</span>
+          </article>
+
+          <article>
+            <strong>Fire / explosion</strong>
+            <span>
+              Apakah ignition atau consequence berubah?
+            </span>
+          </article>
+
+          <article>
+            <strong>Toxic exposure</strong>
+            <span>
+              Apakah exposure scenario berubah?
+            </span>
+          </article>
+
+          <article>
+            <strong>Safeguards</strong>
+            <span>
+              Apakah protection tetap efektif?
+            </span>
+          </article>
+
+          <article>
+            <strong>Human factors</strong>
+            <span>
+              Apakah task atau workload berubah?
+            </span>
+          </article>
+
+        </div>
+
+        <article class="panel">
+
+          <h3>
+            PHA / Risk Review
+          </h3>
+
+          <p>
+            MOC tidak selalu berarti PHA penuh.
+            Tingkat review dapat berupa PHA, HAZOP,
+            What-If, checklist review, LOPA,
+            engineering calculation, atau metode lain
+            sesuai karakter perubahan dan prosedur organisasi.
+          </p>
+
+        </article>
+
+        <div class="two-col-list">
+
+          <div>
+
+            <h3>
+              PSI yang mungkin terdampak
+            </h3>
+
+            <ul>
+              <li>PFD / P&amp;ID</li>
+              <li>Datasheet & equipment specification</li>
+              <li>Process chemistry & operating limits</li>
+              <li>Control narrative & cause-and-effect</li>
+              <li>Relief information</li>
+              <li>Dokumen teknis relevan lainnya</li>
+            </ul>
+
+          </div>
+
+          <div>
+
+            <h3>
+              Operating practices yang perlu dicek
+            </h3>
+
+            <ul>
+              <li>Startup / shutdown</li>
+              <li>Alarm response</li>
+              <li>Isolation</li>
+              <li>Maintenance</li>
+              <li>Sampling</li>
+              <li>Emergency response</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <button
+          class="complete-btn"
+          data-complete="review"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           TEMPORARY
+      ====================== -->
+
+      <section
+        id="temporary"
+        class="section observed learn-section"
+        data-section="temporary">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            D.13–D.14 • TEMPORARY & EMERGENCY
+          </span>
+
+          <h2>
+            Sementara bukan berarti bebas kontrol.
+          </h2>
+
+        </div>
+
+        <div class="split">
+
+          <article class="panel accent-yellow">
+
+            <span class="badge yellow">
+              TEMPORARY CHANGE
+            </span>
+
+            <h3>
+              Harus punya batas waktu dan jalan pulang.
+            </h3>
+
+            <p>
+              Dokumen perlu menjelaskan alasan,
+              durasi, hazard, safeguards, monitoring,
+              approval, dan kriteria restoration.
+
+              Temporary change tidak boleh berubah
+              menjadi permanent tanpa review.
+            </p>
+
+          </article>
+
+          <article class="panel accent-red">
+
+            <span class="badge red">
+              EMERGENCY CHANGE
+            </span>
+
+            <h3>
+              Urgent ≠ tanpa process safety.
+            </h3>
+
+            <p>
+              Emergency change membutuhkan disiplin
+              review sesuai kondisi.
+
+              Setelah kondisi stabil, lakukan
+              retrospective review dan pastikan
+              documentation, procedures, training,
+              dan closure sesuai kebutuhan.
+            </p>
+
+          </article>
+
+        </div>
+
+        <div class="comm-grid">
+
+          <div>
+            <strong>Operators</strong>
+            <span>
+              Perubahan operasi, alarm, prosedur
+            </span>
+          </div>
+
+          <div>
+            <strong>Maintenance</strong>
+            <span>
+              Equipment, isolation, testing
+            </span>
+          </div>
+
+          <div>
+            <strong>Contractors</strong>
+            <span>
+              Task-specific hazards
+            </span>
+          </div>
+
+          <div>
+            <strong>Emergency responders</strong>
+            <span>
+              Changed scenario / response
+            </span>
+          </div>
+
+          <div>
+            <strong>Supervisors</strong>
+            <span>
+              Authorization dan readiness
+            </span>
+          </div>
+
+        </div>
+
+        <button
+          class="complete-btn"
+          data-complete="temporary"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           CLOSURE
+      ====================== -->
+
+      <section
+        id="closure"
+        class="section observed learn-section"
+        data-section="closure">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            D.15–D.19 • IMPLEMENTASI & CLOSURE
+          </span>
+
+          <h2>
+            MOC belum selesai hanya karena
+            pekerjaan fisiknya selesai.
+          </h2>
+
+        </div>
+
+        <div class="evidence-chain">
+
+          <span>Change Request</span>
+          <b>→</b>
+
+          <span>Technical Basis</span>
+          <b>→</b>
+
+          <span>Impact Assessment</span>
+          <b>→</b>
+
+          <span>Actions</span>
+          <b>→</b>
+
+          <span>Approval</span>
+          <b>→</b>
+
+          <span>Implementation Evidence</span>
+          <b>→</b>
+
+          <span>Closure</span>
+
+        </div>
+
+        <div class="table-wrap">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Kriteria closure</th>
+                <th>Evidence</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>Physical implementation</td>
+                <td>Inspection / field verification</td>
+              </tr>
+
+              <tr>
+                <td>Testing</td>
+                <td>Test / commissioning record</td>
+              </tr>
+
+              <tr>
+                <td>Documentation</td>
+                <td>Updated PSI / P&amp;ID / procedure</td>
+              </tr>
+
+              <tr>
+                <td>Training</td>
+                <td>Training record</td>
+              </tr>
+
+              <tr>
+                <td>Actions</td>
+                <td>Closed action register</td>
+              </tr>
+
+              <tr>
+                <td>Approval</td>
+                <td>Final closure authorization</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <details class="learning-box">
+
+          <summary>
+            Kesalahan umum dalam MOC
+          </summary>
+
+          <ul class="clean-list">
+
+            <li>
+              MOC dimulai setelah perubahan dipasang.
+            </li>
+
+            <li>
+              Perubahan dianggap RIK tanpa verifikasi.
+            </li>
+
+            <li>
+              Impact assessment hanya membahas
+              equipment baru.
+            </li>
+
+            <li>
+              Temporary change tidak punya expiry date.
+            </li>
+
+            <li>
+              Operator tidak dilatih atau dokumen
+              tidak diperbarui.
+            </li>
+
+            <li>
+              Closure hanya berdasarkan pernyataan lisan.
+            </li>
+
+            <li>
+              Approval dilakukan tanpa multidisciplinary
+              review yang memadai.
+            </li>
+
+          </ul>
+
+        </details>
+
+        <button
+          class="complete-btn"
+          data-complete="closure"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           CONTOH
+      ====================== -->
+
+      <section
+        id="contoh"
+        class="section observed learn-section"
+        data-section="contoh">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            D.20–F • CONTOH & CASE STUDY
+          </span>
+
+          <h2>
+            Latih cara berpikir, bukan sekadar klasifikasi.
+          </h2>
+
+        </div>
+
+        <div class="case-grid">
+
+          <article class="case-card">
+
+            <span class="case-no">
+              Worked Example 1
+            </span>
+
+            <h3>
+              Modifikasi Valve
+            </h3>
+
+            <p>
+              Fungsi valve tetap, tetapi material dan
+              compatibility berubah.
+
+              Jangan langsung menyebutnya RIK;
+              mulai dari specification, rating,
+              corrosion/erosion, dokumen, test,
+              dan closure.
+            </p>
+
+          </article>
+
+          <article class="case-card">
+
+            <span class="case-no">
+              Worked Example 2
+            </span>
+
+            <h3>
+              Throughput 100 → 120 m³/h
+            </h3>
+
+            <p>
+              Walau tidak ada equipment baru,
+              perubahan operating condition dapat
+              memengaruhi pressure drop,
+              pump operating point, heat removal,
+              relief scenario, residence time,
+              dan process stability.
+            </p>
+
+          </article>
+
+          <article class="case-card">
+
+            <span class="case-no">
+              Mini Case
+            </span>
+
+            <h3>
+              Material Gasket
+            </h3>
+
+            <p>
+              Material Y memiliki temperature limit
+              dan chemical compatibility berbeda.
+
+              Uji apakah RIK masih dapat dipertahankan.
+            </p>
+
+          </article>
+
+          <article class="case-card">
+
+            <span class="case-no">
+              Mini Case
+            </span>
+
+            <h3>
+              Alarm Set Point
+            </h3>
+
+            <p>
+              High-level alarm 80% diusulkan
+              menjadi 90%.
+
+              Evaluasi operator response,
+              safety margin, overfill,
+              procedure, dan emergency response.
+            </p>
+
+          </article>
+
+          <article class="case-card">
+
+            <span class="case-no">
+              Case Study 1
+            </span>
+
+            <h3>
+              Modifikasi Jalur Transfer
+            </h3>
+
+            <p>
+              Valve isolation baru meningkatkan
+              maintainability tetapi dapat mengisolasi
+              equipment dari protective system tertentu.
+
+              Analisis kondisi valve tertutup dan
+              kebutuhan targeted risk review.
+            </p>
+
+          </article>
+
+          <article class="case-card">
+
+            <span class="case-no">
+              Case Study 2
+            </span>
+
+            <h3>
+              Temporary Operating Change
+            </h3>
+
+            <p>
+              Pompa standby memiliki operating
+              envelope berbeda dan digunakan
+              maksimal 14 hari.
+
+              Fokus pada limits, safeguards,
+              monitoring, procedure, authorization,
+              contingency, dan restoration.
+            </p>
+
+          </article>
+
+        </div>
+
+        <details class="learning-box">
+
+          <summary>
+            Insiden & pembelajaran MOC di modul
+          </summary>
+
+          <div class="incident-grid">
+
+            <div>
+              <strong>
+                Equilon Enterprises (1998)
+              </strong>
+
+              <p>
+                Perubahan atau deviasi operasional
+                perlu masuk sistem review,
+                meski bukan proyek engineering besar.
+              </p>
+            </div>
+
+            <div>
+              <strong>
+                CONDEA Vista (1998)
+              </strong>
+
+              <p>
+                Perubahan teknologi perlu dianalisis
+                sampai maintenance, process behavior,
+                dan kondisi abnormal.
+              </p>
+            </div>
+
+            <div>
+              <strong>
+                BP Texas City (2005)
+              </strong>
+
+              <p>
+                Perubahan organisasi, staffing,
+                budget, dan policy dapat berdampak
+                pada process safety.
+              </p>
+            </div>
+
+            <div>
+              <strong>
+                Williams Olefins (2013)
+              </strong>
+
+              <p>
+                MOC perlu melihat keseluruhan proses
+                terdampak dan interaction hazards,
+                bukan hanya equipment baru.
+              </p>
+            </div>
+
+          </div>
+
+        </details>
+
+        <button
+          class="complete-btn"
+          data-complete="contoh"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           LATIHAN
+      ====================== -->
+
+      <section
+        id="latihan"
+        class="section observed learn-section"
+        data-section="latihan">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            H. LATIHAN / TUGAS
+          </span>
+
+          <h2>
+            Screening dulu. Lalu minta evidence.
+          </h2>
+
+        </div>
+
+        <div class="table-wrap">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Skenario</th>
+                <th>Pertanyaan Anda</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>
+                  Valve diganti identik sesuai
+                  design specification
+                </td>
+                <td>
+                  Apakah MOC diperlukan?
+                  Evidence apa yang diminta?
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Valve diganti dengan rating berbeda
+                </td>
+                <td>
+                  Apakah masih RIK?
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Bahan baku diganti dengan
+                  chemical grade berbeda
+                </td>
+                <td>
+                  Apa yang berubah pada
+                  technical basis dan hazard?
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Set point alarm diubah
+                </td>
+                <td>
+                  Apa dampaknya ke operator response
+                  dan safety margin?
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Prosedur startup diubah
+                </td>
+                <td>
+                  Siapa yang terdampak
+                  dan perlu training?
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Temporary bypass 7 hari
+                </td>
+                <td>
+                  Apa expiry dan restoration plan?
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  P&amp;ID diubah karena rerouting pipe
+                </td>
+                <td>
+                  Bagian mana yang perlu
+                  impact assessment?
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Perubahan staffing memengaruhi
+                  covered process
+                </td>
+                <td>
+                  Apa human factors dan
+                  organizational impact-nya?
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <div class="assignment-grid">
+
+          <article>
+
+            <h3>
+              Latihan 2 • Technical Basis
+            </h3>
+
+            <p>
+              Pilih satu skenario dan susun technical
+              basis 250–400 kata: existing, proposed,
+              alasan, design constraints, dan evidence.
+            </p>
+
+          </article>
+
+          <article>
+
+            <h3>
+              Latihan 3 • Impact Assessment
+            </h3>
+
+            <p>
+              Nilai kategori hazard, containment,
+              fire/explosion, toxic exposure,
+              safeguards, procedures, training,
+              emergency response, mechanical integrity,
+              dan human factors.
+            </p>
+
+          </article>
+
+        </div>
+
+        <button
+          class="complete-btn"
+          data-complete="latihan"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           QUIZ
+      ====================== -->
+
+      <section
+        id="quiz"
+        class="section observed learn-section"
+        data-section="quiz">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            I. TES FORMATIF
+          </span>
+
+          <h2>
+            10 pertanyaan • skor otomatis
+          </h2>
+
+          <p>
+            Jawab tanpa melihat catatan.
+            Setelah submit, sistem memberi skor
+            dan saran tindak lanjut sesuai modul.
+          </p>
+
+        </div>
+
+        <form
+          id="quizForm"
+          class="quiz-form">
+        </form>
+
+        <div
+          id="quizResult"
+          class="quiz-result"
+          hidden
+          aria-live="polite">
+        </div>
+
+        <button
+          class="complete-btn"
+          data-complete="quiz"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           CHECKLIST
+      ====================== -->
+
+      <section
+        id="checklist"
+        class="section observed learn-section"
+        data-section="checklist">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            LAMPIRAN 1 • MOC SCREENING CHECKLIST
+          </span>
+
+          <h2>
+            Checklist interaktif untuk latihan screening.
+          </h2>
+
+          <p>
+            Pilihan tersimpan di perangkat ini.
+            Gunakan kolom evidence/alasan untuk
+            melatih keputusan yang traceable.
+          </p>
+
+        </div>
+
+        <div class="checklist-actions">
+
+          <button
+            class="btn secondary"
+            id="printChecklist"
+            type="button">
+            Print checklist
+          </button>
+
+          <button
+            class="btn ghost"
+            id="resetChecklist"
+            type="button">
+            Reset checklist
+          </button>
+
+        </div>
+
+        <div class="table-wrap checklist-wrap">
+
+          <table class="checklist-table">
+
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Pertanyaan screening</th>
+                <th>Keputusan</th>
+                <th>Evidence / alasan</th>
+              </tr>
+            </thead>
+
+            <tbody id="checklistBody">
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <div
+          id="checklistSummary"
+          class="callout">
+        </div>
+
+        <button
+          class="complete-btn"
+          data-complete="checklist"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           GLOSARIUM
+      ====================== -->
+
+      <section
+        id="glosarium"
+        class="section observed learn-section"
+        data-section="glosarium">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            GLOSARIUM
+          </span>
+
+          <h2>
+            Istilah yang harus familiar.
+          </h2>
+
+        </div>
+
+        <input
+          id="glossarySearch"
+          class="search-input"
+          type="search"
+          placeholder="Cari istilah, mis. RIK, closure, safeguard…"
+          aria-label="Cari glosarium"
+        />
+
+        <div
+          id="glossaryGrid"
+          class="glossary-grid">
+        </div>
+
+        <button
+          class="complete-btn"
+          data-complete="glosarium"
+          type="button">
+          Tandai selesai
+        </button>
+
+      </section>
+
+      <!-- ======================
+           REFERENCES
+      ====================== -->
+
+      <section
+        id="referensi"
+        class="section observed">
+
+        <div class="section-head">
+
+          <span class="eyebrow">
+            DAFTAR PUSTAKA
+          </span>
+
+          <h2>
+            Referensi utama modul
+          </h2>
+
+        </div>
+
+        <div class="references">
+
+          <p>
+            Center for Chemical Process Safety. (2007).
+            <em>
+              Guidelines for performing effective
+              pre-startup safety reviews.
+            </em>
+            John Wiley &amp; Sons.
+          </p>
+
+          <p>
+            Occupational Safety and Health Administration.
+            (2020).
+            <em>
+              Process safety management of highly hazardous
+              chemicals (29 CFR 1910.119).
+            </em>
+          </p>
+
+          <p>
+            Occupational Safety and Health Administration.
+            (2013).
+            <em>
+              Appendix C to §1910.119—Compliance guidelines
+              and recommendations for process safety management.
+            </em>
+          </p>
+
+          <p>
+            U.S. Chemical Safety and Hazard Investigation Board.
+            (2001).
+            <em>
+              Management of change safety bulletin.
+            </em>
+          </p>
+
+          <p>
+            U.S. Chemical Safety and Hazard Investigation Board.
+            (2007).
+            <em>
+              BP Texas City refinery final investigation report.
+            </em>
+          </p>
+
+          <p>
+            U.S. Chemical Safety and Hazard Investigation Board.
+            (2016).
+            <em>
+              Williams Geismar olefins plant case study.
+            </em>
+          </p>
+
+        </div>
+
+        <div class="closing-card">
+
+          <span>
+            INTI PEMBELAJARAN
+          </span>
+
+          <blockquote>
+            MOC bukan “izin untuk mengubah”,
+            melainkan cara organisasi memahami
+            perubahan sebelum perubahan tersebut
+            menciptakan kondisi operasi yang tidak dipahami.
+          </blockquote>
+
+        </div>
+
+      </section>
+
+      <footer class="site-footer">
+
+        <p>
+          Modul digital Management of Change (MOC)
+          • Keselamatan Pabrik Kimia
+          • Teknik Kimia UPN “Veteran” Jawa Timur
+        </p>
+
+        <p>
+          Konten diadaptasi dari modul pembelajaran
+          karya Ratri Puspita Wardani, S.T., M.Eng.
+        </p>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script>
+    (() => {
+
+      'use strict';
+
+      /* ======================
+         QUIZ DATA
+      ====================== */
+
+      const quiz = [
+
+        {
+          q:'Tujuan utama MOC adalah ...',
+          options:[
+            'mempercepat semua perubahan',
+            'memastikan perubahan dinilai dan dikendalikan sebelum implementasi',
+            'menggantikan PHA',
+            'menghilangkan kebutuhan training'
+          ],
+          answer:1,
+          note:'MOC mengelola perubahan sebelum implementasi.'
+        },
+
+        {
+          q:'Menurut OSHA, replacement in kind ...',
+          options:[
+            'selalu membutuhkan MOC',
+            'dikecualikan dari MOC jika benar-benar memenuhi design specification',
+            'hanya berlaku untuk piping',
+            'hanya berlaku untuk electrical equipment'
+          ],
+          answer:1,
+          note:'RIK dikecualikan bila benar-benar memenuhi design specification.'
+        },
+
+        {
+          q:'Salah satu minimum consideration MOC adalah ...',
+          options:[
+            'warna equipment',
+            'technical basis',
+            'biaya makan pekerja',
+            'jumlah rapat'
+          ],
+          answer:1,
+          note:'Technical basis merupakan minimum consideration.'
+        },
+
+        {
+          q:'Temporary change ...',
+          options:[
+            'bebas dari MOC',
+            'harus memiliki batas dan pengendalian yang jelas',
+            'tidak perlu approval',
+            'tidak perlu restoration'
+          ],
+          answer:1,
+          note:'Temporary change tetap perlu dikendalikan dan dibatasi.'
+        },
+
+        {
+          q:'Jika change memengaruhi PSI, maka ...',
+          options:[
+            'PSI tidak perlu diubah',
+            'PSI diperbarui sesuai kebutuhan',
+            'hanya training yang diubah',
+            'MOC ditutup'
+          ],
+          answer:1,
+          note:'PSI diperbarui bila change memengaruhinya.'
+        },
+
+        {
+          q:'Pekerja yang terdampak change harus ...',
+          options:[
+            'tidak diberi informasi',
+            'diberi informasi dan training sesuai kebutuhan sebelum startup affected process',
+            'hanya diberi email setelah change',
+            'menunggu audit'
+          ],
+          answer:1,
+          note:'Personel terdampak perlu informasi/training sebelum startup affected process.'
+        },
+
+        {
+          q:'MOC yang hanya menilai equipment baru berisiko karena ...',
+          options:[
+            'terlalu banyak dokumen',
+            'interaction hazard pada sistem dapat terlewat',
+            'approval terlalu cepat',
+            'training terlalu banyak'
+          ],
+          answer:1,
+          note:'MOC harus melihat keseluruhan proses yang terdampak.'
+        },
+
+        {
+          q:'Evidence closure yang paling kuat adalah ...',
+          options:[
+            'pernyataan lisan',
+            'implementation/test/documentation/training evidence yang dapat diverifikasi',
+            'foto tanpa konteks',
+            'draft MOC'
+          ],
+          answer:1,
+          note:'Closure perlu evidence yang dapat diverifikasi.'
+        },
+
+        {
+          q:'Perubahan set point alarm dapat memengaruhi ...',
+          options:[
+            'hanya warna HMI',
+            'operator response dan safety margin',
+            'hanya procurement',
+            'tidak ada apa-apa'
+          ],
+          answer:1,
+          note:'Set point dapat mengubah response dan safety margin.'
+        },
+
+        {
+          q:'MOC efektif ditandai oleh ...',
+          options:[
+            'jumlah formulir',
+            'kualitas review, action completion, communication, implementation, dan closure',
+            'jumlah approval',
+            'kecepatan perubahan'
+          ],
+          answer:1,
+          note:'Efektivitas lebih penting daripada jumlah formulir.'
+        }
+
+      ];
+
+      /* ======================
+         CHECKLIST
+      ====================== */
+
+      const checklistItems = [
+
+        'Apakah ada perubahan yang diusulkan?',
+
+        'Apakah perubahan memengaruhi covered process?',
+
+        'Apakah benar-benar replacement in kind?',
+
+        'Apakah process chemical berubah?',
+
+        'Apakah technology/process condition berubah?',
+
+        'Apakah equipment/material/specification berubah?',
+
+        'Apakah procedure/practice berubah?',
+
+        'Apakah facility/configuration berubah?',
+
+        'Apakah safety/health impact perlu dianalisis?',
+
+        'Apakah PHA/risk review diperlukan?',
+
+        'Apakah PSI berubah?',
+
+        'Apakah operating procedure berubah?',
+
+        'Apakah training/communication diperlukan?',
+
+        'Apakah temporary duration/restoration diperlukan?',
+
+        'Apakah authorization sudah ditentukan?'
+
+      ];
+
+      /* ======================
+         GLOSSARY
+      ====================== */
+
+      const glossary = [
+
+        [
+          'Change',
+          'Perubahan pada process chemicals, technology, equipment, procedures, atau facilities yang relevan terhadap covered process.'
+        ],
+
+        [
+          'Management of Change (MOC)',
+          'Proses sistematis untuk menilai dan mengendalikan perubahan sebelum implementasi.'
+        ],
+
+        [
+          'Replacement in Kind',
+          'Penggantian yang memenuhi design specification.'
+        ],
+
+        [
+          'Technical Basis',
+          'Dasar teknis yang menjelaskan kondisi existing, proposed change, alasan, dan batas desain.'
+        ],
+
+        [
+          'Safety Impact',
+          'Dampak perubahan terhadap keselamatan dan kesehatan.'
+        ],
+
+        [
+          'PSI',
+          'Process Safety Information.'
+        ],
+
+        [
+          'PHA',
+          'Process Hazard Analysis.'
+        ],
+
+        [
+          'PSSR',
+          'Pre-Startup Safety Review.'
+        ],
+
+        [
+          'Temporary Change',
+          'Perubahan untuk periode/tujuan terbatas dan memiliki rencana restoration.'
+        ],
+
+        [
+          'Emergency Change',
+          'Perubahan untuk merespons kondisi darurat yang tetap memerlukan pengendalian serta review sesuai prosedur.'
+        ],
+
+        [
+          'Closure',
+          'Tahap ketika implementasi, tindakan, dokumentasi, training, dan verifikasi yang diperlukan telah selesai.'
+        ],
+
+        [
+          'Traceability',
+          'Kemampuan menelusuri hubungan change, review, action, evidence, dan closure.'
+        ],
+
+        [
+          'Safeguard',
+          'Lapisan perlindungan yang mencegah atau mengurangi konsekuensi hazard.'
+        ],
+
+        [
+          'Human Factors',
+          'Faktor terkait interaksi manusia dengan sistem, prosedur, teknologi, organisasi, dan lingkungan kerja.'
+        ]
+
+      ];
+
+      /* ======================
+         LOCAL STORAGE
+      ====================== */
+
+      const storage = {
+
+        get(key, fallback) {
+
+          try {
+
+            return JSON.parse(
+              localStorage.getItem(key)
+            ) ?? fallback;
+
+          } catch {
+
+            return fallback;
+
+          }
+
+        },
+
+        set(key, value) {
+
+          try {
+
+            localStorage.setItem(
+              key,
+              JSON.stringify(value)
+            );
+
+          } catch {}
+
+        }
+
+      };
+
+      /* ======================
+         MOBILE NAVIGATION
+      ====================== */
+
+      const sidebar =
+        document.getElementById('sidebar');
+
+      const menuBtn =
+        document.getElementById('menuBtn');
+
+      menuBtn?.addEventListener(
+        'click',
+        () => {
+
+          const open =
+            sidebar.classList.toggle('open');
+
+          menuBtn.setAttribute(
+            'aria-expanded',
+            String(open)
+          );
+
+        }
+      );
+
+      document
+        .querySelectorAll('.nav-list a')
+        .forEach(
+          a => a.addEventListener(
+            'click',
+            () => {
+
+              sidebar.classList.remove('open');
+
+              menuBtn?.setAttribute(
+                'aria-expanded',
+                'false'
+              );
+
+            }
+          )
+        );
+
+      /* ======================
+         DARK MODE
+      ====================== */
+
+      const themeBtn =
+        document.getElementById('themeBtn');
+
+      const savedTheme =
+        storage.get(
+          'moc-theme',
+          'light'
+        );
+
+      if(savedTheme === 'dark') {
+
+        document.body.classList.add('dark');
+
+      }
+
+      themeBtn?.addEventListener(
+        'click',
+        () => {
+
+          document.body.classList.toggle('dark');
+
+          storage.set(
+            'moc-theme',
+            document.body.classList.contains('dark')
+              ? 'dark'
+              : 'light'
+          );
+
+        }
+      );
+
+      /* ======================
+         SCROLL SPY
+      ====================== */
+
+      const navLinks = [
+        ...document.querySelectorAll('.nav-list a')
+      ];
+
+      const sectionMap =
+        new Map(
+          navLinks.map(
+            a => [
+              a.getAttribute('href').slice(1),
+              a
+            ]
+          )
+        );
+
+      const observer =
+        new IntersectionObserver(
+          entries => {
+
+            const visible =
+              entries
+                .filter(e => e.isIntersecting)
+                .sort(
+                  (a,b) =>
+                    b.intersectionRatio -
+                    a.intersectionRatio
+                )[0];
+
+            if(!visible) {
+              return;
+            }
+
+            navLinks.forEach(
+              a => a.classList.remove('active')
+            );
+
+            sectionMap
+              .get(visible.target.id)
+              ?.classList.add('active');
+
+          },
+          {
+            rootMargin:'-20% 0px -65% 0px',
+            threshold:[0,.1,.3]
+          }
+        );
+
+      document
+        .querySelectorAll('.observed')
+        .forEach(
+          s => observer.observe(s)
+        );
+
+      /* ======================
+         LEARNING PROGRESS
+      ====================== */
+
+      const completeButtons = [
+        ...document.querySelectorAll('[data-complete]')
+      ];
+
+      let completed =
+        storage.get(
+          'moc-completed',
+          []
+        );
+
+      const renderProgress = () => {
+
+        completeButtons.forEach(
+          btn => {
+
+            const done =
+              completed.includes(
+                btn.dataset.complete
+              );
+
+            btn.classList.toggle(
+              'done',
+              done
+            );
+
+            btn.textContent =
+              done
+                ? '✓ Selesai'
+                : 'Tandai selesai';
+
+          }
+        );
+
+        const pct =
+          completeButtons.length
+            ? Math.round(
+                completed.length /
+                completeButtons.length *
+                100
+              )
+            : 0;
+
+        document
+          .getElementById('progressLabel')
+          .textContent = `${pct}%`;
+
+        document
+          .getElementById('progressBar')
+          .style.width = `${pct}%`;
+
+      };
+
+      completeButtons.forEach(
+
+        btn =>
+          btn.addEventListener(
+            'click',
+            () => {
+
+              const id =
+                btn.dataset.complete;
+
+              completed =
+                completed.includes(id)
+                  ? completed.filter(
+                      x => x !== id
+                    )
+                  : [
+                      ...completed,
+                      id
+                    ];
+
+              storage.set(
+                'moc-completed',
+                completed
+              );
+
+              renderProgress();
+
+            }
+          )
+
+      );
+
+      document
+        .getElementById('resetProgress')
+        ?.addEventListener(
+          'click',
+          () => {
+
+            completed = [];
+
+            storage.set(
+              'moc-completed',
+              completed
+            );
+
+            renderProgress();
+
+          }
+        );
+
+      renderProgress();
+
+      /* ======================
+         QUIZ RENDERING
+      ====================== */
+
+      const quizForm =
+        document.getElementById('quizForm');
+
+      quiz.forEach(
+        (item,i) => {
+
+          const field =
+            document.createElement('fieldset');
+
+          field.className =
+            'question';
+
+          const legend =
+            document.createElement('h3');
+
+          legend.textContent =
+            `${i+1}. ${item.q}`;
+
+          field.appendChild(
+            legend
+          );
+
+          item.options.forEach(
+            (opt,j) => {
+
+              const label =
+                document.createElement('label');
+
+              label.className =
+                'option';
+
+              const input =
+                document.createElement('input');
+
+              input.type =
+                'radio';
+
+              input.name =
+                `q${i}`;
+
+              input.value =
+                String(j);
+
+              const span =
+                document.createElement('span');
+
+              span.textContent =
+                `${String.fromCharCode(65+j)}. ${opt}`;
+
+              label.append(
+                input,
+                span
+              );
+
+              field.appendChild(
+                label
+              );
+
+            }
+          );
+
+          quizForm.appendChild(
+            field
+          );
+
+        }
+      );
+
+      const submit =
+        document.createElement('button');
+
+      submit.type =
+        'submit';
+
+      submit.className =
+        'btn primary quiz-submit';
+
+      submit.textContent =
+        'Periksa jawaban';
+
+      quizForm.appendChild(
+        submit
+      );
+
+      quizForm.addEventListener(
+        'submit',
+        e => {
+
+          e.preventDefault();
+
+          let score = 0;
+
+          let unanswered = 0;
+
+          const feedback = [];
+
+          quiz.forEach(
+            (item,i) => {
+
+              const selected =
+                quizForm.querySelector(
+                  `input[name="q${i}"]:checked`
+                );
+
+              if(!selected) {
+
+                unanswered++;
+
+                feedback.push(
+                  `${i+1}. Belum dijawab.`
+                );
+
+                return;
+
+              }
+
+              if(
+                Number(selected.value)
+                === item.answer
+              ) {
+
+                score++;
+
+              } else {
+
+                feedback.push(
+                  `${i+1}. ${item.note}`
+                );
+
+              }
+
+            }
+          );
+
+          const pct =
+            Math.round(
+              score /
+              quiz.length *
+              100
+            );
+
+          let status;
+          let cls;
+          let action;
+
+          if(pct >= 80) {
+
+            status =
+              'Tuntas';
+
+            cls =
+              'pass';
+
+            action =
+              'Lanjut ke latihan case study.';
+
+          } else if(pct >= 60) {
+
+            status =
+              'Perlu penguatan';
+
+            cls =
+              'warn';
+
+            action =
+              'Ulangi materi RIK, screening, technical basis, impact assessment, safeguards, dan closure.';
+
+          } else {
+
+            status =
+              'Belum tuntas';
+
+            cls =
+              'fail';
+
+            action =
+              'Pelajari kembali konsep MOC, RIK, impact assessment, dan closure.';
+
+          }
+
+          const result =
+            document.getElementById(
+              'quizResult'
+            );
+
+          result.hidden =
+            false;
+
+          result.className =
+            `quiz-result ${cls}`;
+
+          result.innerHTML = `
+            <h3>
+              Skor ${score}/${quiz.length}
+              (${pct}%) — ${status}
+            </h3>
+
+            <p>
+              ${action}
+            </p>
+
+            ${
+              unanswered
+                ? `
+                  <p>
+                    <strong>
+                      ${unanswered}
+                    </strong>
+                    soal belum dijawab.
+                  </p>
+                `
+                : ''
+            }
+
+            ${
+              feedback.length
+                ? `
+                  <details>
+                    <summary>
+                      Lihat pembahasan yang perlu diperhatikan
+                    </summary>
+
+                    <ul>
+                      ${
+                        feedback
+                          .map(
+                            x => `<li>${x}</li>`
+                          )
+                          .join('')
+                      }
+                    </ul>
+
+                  </details>
+                `
+                : `
+                  <p>
+                    Semua jawaban benar.
+                  </p>
+                `
+            }
+          `;
+
+          result.scrollIntoView(
+            {
+              behavior:'smooth',
+              block:'center'
+            }
+          );
+
+        }
+      );
+
+      /* ======================
+         CHECKLIST
+      ====================== */
+
+      const checklistBody =
+        document.getElementById(
+          'checklistBody'
+        );
+
+      let checklistState =
+        storage.get(
+          'moc-checklist',
+          {}
+        );
+
+      const updateChecklistSummary =
+        () => {
+
+          const vals =
+            checklistItems.map(
+              (_,i) =>
+                checklistState[i]?.decision || ''
+            );
+
+          const yes =
+            vals.filter(
+              v => v === 'Yes'
+            ).length;
+
+          const no =
+            vals.filter(
+              v => v === 'No'
+            ).length;
+
+          const na =
+            vals.filter(
+              v => v === 'N/A'
+            ).length;
+
+          document
+            .getElementById(
+              'checklistSummary'
+            )
+            .innerHTML = `
+              <strong>
+                Ringkasan checklist:
+              </strong>
+
+              Yes ${yes}
+              • No ${no}
+              • N/A ${na}
+              • Belum diisi
+              ${
+                checklistItems.length -
+                yes -
+                no -
+                na
+              }.
+
+              <span class="muted">
+                Checklist membantu screening;
+                keputusan tetap harus dijelaskan
+                dengan evidence/alasan.
+              </span>
+            `;
+
+        };
+
+      checklistItems.forEach(
+        (item,i) => {
+
+          const tr =
+            document.createElement('tr');
+
+          const tdNo =
+            document.createElement('td');
+
+          tdNo.textContent =
+            String(i+1);
+
+          const tdQ =
+            document.createElement('td');
+
+          tdQ.textContent =
+            item;
+
+          const tdD =
+            document.createElement('td');
+
+          const select =
+            document.createElement('select');
+
+          select.setAttribute(
+            'aria-label',
+            `Keputusan nomor ${i+1}`
+          );
+
+          [
+            '',
+            'Yes',
+            'No',
+            'N/A'
+          ].forEach(
+            v => {
+
+              const o =
+                document.createElement('option');
+
+              o.value =
+                v;
+
+              o.textContent =
+                v || 'Pilih…';
+
+              select.appendChild(o);
+
+            }
+          );
+
+          select.value =
+            checklistState[i]?.decision || '';
+
+          const tdE =
+            document.createElement('td');
+
+          const input =
+            document.createElement('input');
+
+          input.type =
+            'text';
+
+          input.placeholder =
+            'Evidence / alasan';
+
+          input.value =
+            checklistState[i]?.evidence || '';
+
+          select.addEventListener(
+            'change',
+            () => {
+
+              checklistState[i] = {
+                decision:select.value,
+                evidence:input.value
+              };
+
+              storage.set(
+                'moc-checklist',
+                checklistState
+              );
+
+              updateChecklistSummary();
+
+            }
+          );
+
+          input.addEventListener(
+            'input',
+            () => {
+
+              checklistState[i] = {
+                decision:select.value,
+                evidence:input.value
+              };
+
+              storage.set(
+                'moc-checklist',
+                checklistState
+              );
+
+            }
+          );
+
+          tdD.appendChild(
+            select
+          );
+
+          tdE.appendChild(
+            input
+          );
+
+          tr.append(
+            tdNo,
+            tdQ,
+            tdD,
+            tdE
+          );
+
+          checklistBody.appendChild(
+            tr
+          );
+
+        }
+      );
+
+      updateChecklistSummary();
+
+      document
+        .getElementById(
+          'resetChecklist'
+        )
+        ?.addEventListener(
+          'click',
+          () => {
+
+            checklistState = {};
+
+            storage.set(
+              'moc-checklist',
+              {}
+            );
+
+            checklistBody
+              .querySelectorAll('select')
+              .forEach(
+                x => x.value = ''
+              );
+
+            checklistBody
+              .querySelectorAll('input')
+              .forEach(
+                x => x.value = ''
+              );
+
+            updateChecklistSummary();
+
+          }
+        );
+
+      document
+        .getElementById(
+          'printChecklist'
+        )
+        ?.addEventListener(
+          'click',
+          () => window.print()
+        );
+
+      /* ======================
+         GLOSSARY
+      ====================== */
+
+      const glossaryGrid =
+        document.getElementById(
+          'glossaryGrid'
+        );
+
+      const renderGlossary =
+        (query='') => {
+
+          const q =
+            query
+              .trim()
+              .toLowerCase();
+
+          const rows =
+            glossary.filter(
+              ([term,def]) =>
+                !q ||
+                term
+                  .toLowerCase()
+                  .includes(q) ||
+                def
+                  .toLowerCase()
+                  .includes(q)
+            );
+
+          glossaryGrid.innerHTML =
+            rows.length
+              ? rows
+                  .map(
+                    ([term,def]) => `
+                      <article class="glossary-item">
+
+                        <strong>
+                          ${term}
+                        </strong>
+
+                        <span>
+                          ${def}
+                        </span>
+
+                      </article>
+                    `
+                  )
+                  .join('')
+              : `
+                  <p>
+                    Tidak ada istilah yang cocok.
+                  </p>
+                `;
+
+        };
+
+      renderGlossary();
+
+      document
+        .getElementById(
+          'glossarySearch'
+        )
+        ?.addEventListener(
+          'input',
+          e =>
+            renderGlossary(
+              e.target.value
+            )
+        );
+
+    })();
+  </script>
+
+</body>
+</html>
