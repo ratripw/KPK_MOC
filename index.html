@@ -3,8 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Modul digital Management of Change (MOC) untuk mata kuliah Keselamatan Pabrik Kimia." />
-  <title>Management of Change (MOC) | Keselamatan Pabrik Kimia</title>
+  <meta
+    name="description"
+    content="Modul digital Management of Change (MOC) untuk mata kuliah Keselamatan Pabrik Kimia."
+  />
+
+  <title>
+    Management of Change (MOC) | Keselamatan Pabrik Kimia
+  </title>
 
   <style>
     :root {
@@ -49,7 +55,13 @@
 
     body {
       margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        sans-serif;
       color:var(--ink);
       background:var(--bg);
       line-height:1.65;
@@ -85,9 +97,7 @@
       top:1rem;
     }
 
-    /* ======================
-       TOP BAR
-    ====================== */
+    /* TOP BAR */
 
     .topbar {
       position:sticky;
@@ -138,9 +148,7 @@
       margin-left:0;
     }
 
-    /* ======================
-       PAGE LAYOUT
-    ====================== */
+    /* LAYOUT */
 
     .app-shell {
       display:grid;
@@ -269,9 +277,7 @@
       text-transform:uppercase;
     }
 
-    /* ======================
-       HERO
-    ====================== */
+    /* HERO */
 
     .hero {
       min-height:calc(100vh - 72px);
@@ -279,15 +285,25 @@
       grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);
       align-items:center;
       gap:50px;
+
       background:
         radial-gradient(
           circle at 85% 20%,
           color-mix(in srgb,var(--teal) 13%,transparent),
           transparent 32%
         );
+
       max-width:none;
-      padding-left:max(52px,calc((100vw - 1400px)/2));
-      padding-right:max(52px,calc((100vw - 1400px)/2));
+
+      padding-left:max(
+        52px,
+        calc((100vw - 1400px)/2)
+      );
+
+      padding-right:max(
+        52px,
+        calc((100vw - 1400px)/2)
+      );
     }
 
     .hero h1 {
@@ -422,9 +438,7 @@
     .t3 { bottom:8%; left:38%; }
     .t4 { left:0; top:46%; }
 
-    /* ======================
-       CONTENT COMPONENTS
-    ====================== */
+    /* COMPONENTS */
 
     .outcome-grid {
       display:grid;
@@ -524,12 +538,14 @@
       gap:20px;
       padding:24px;
       border-radius:var(--radius);
+
       background:
         linear-gradient(
           135deg,
           color-mix(in srgb,var(--teal) 12%,var(--card)),
           var(--card)
         );
+
       border:1px solid var(--line);
     }
 
@@ -827,9 +843,7 @@
       color:var(--muted);
     }
 
-    /* ======================
-       INTERACTIVE
-    ====================== */
+    /* INTERACTIVE */
 
     .complete-btn {
       margin-top:22px;
@@ -1018,11 +1032,8 @@
       margin:3px;
     }
 
-    /* ======================
-       RESPONSIVE
-    ====================== */
-
     @media (max-width:1050px) {
+
       .app-shell {
         grid-template-columns:220px minmax(0,1fr);
       }
@@ -1057,6 +1068,7 @@
     }
 
     @media (max-width:760px) {
+
       .menu-btn {
         display:inline-grid;
         place-items:center;
@@ -1127,6 +1139,7 @@
     }
 
     @media (max-width:470px) {
+
       .concept-grid,
       .risk-grid,
       .case-grid,
@@ -1157,6 +1170,7 @@
     }
 
     @media print {
+
       .topbar,
       .sidebar,
       .hero-actions,
@@ -1199,1106 +1213,447 @@
         background:white;
         color:black;
       }
-
-      .checklist-table input,
-      .checklist-table select {
-        border:1px solid #aaa;
-        color:black;
-        background:white;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <a class="skip-link" href="#main">
-    Lewati ke konten utama
-  </a>
+<a
+  class="skip-link"
+  href="#main">
+  Lewati ke konten utama
+</a>
 
-  <header class="topbar">
+<header class="topbar">
 
-    <button
-      class="icon-btn menu-btn"
-      id="menuBtn"
-      type="button"
-      aria-label="Buka navigasi"
-      aria-expanded="false">
-      ☰
-    </button>
+  <button
+    class="icon-btn menu-btn"
+    id="menuBtn"
+    type="button"
+    aria-label="Buka navigasi"
+    aria-expanded="false">
+    ☰
+  </button>
 
-    <div class="brand">
-      <span class="brand-kicker">
-        KESELAMATAN PABRIK KIMIA
-      </span>
+  <div class="brand">
 
-      <strong>
-        Management of Change (MOC)
-      </strong>
-    </div>
+    <span class="brand-kicker">
+      KESELAMATAN PABRIK KIMIA
+    </span>
 
-    <button
-      class="icon-btn"
-      id="themeBtn"
-      type="button"
-      aria-label="Ganti tema">
-      ◐
-    </button>
+    <strong>
+      Management of Change (MOC)
+    </strong>
 
-  </header>
+  </div>
 
-  <div class="app-shell">
+  <button
+    class="icon-btn"
+    id="themeBtn"
+    type="button"
+    aria-label="Ganti tema">
+    ◐
+  </button>
 
-    <!-- ======================
-         SIDEBAR
-    ====================== -->
+</header>
 
-    <aside
-      class="sidebar"
-      id="sidebar"
-      aria-label="Navigasi modul">
+<div class="app-shell">
 
-      <div class="sidebar-inner">
+  <aside
+    class="sidebar"
+    id="sidebar"
+    aria-label="Navigasi modul">
 
-        <div class="course-meta compact">
-          <span>TK 141132</span>
-          <span>•</span>
-          <span>Semester VII</span>
-          <span>•</span>
-          <span>2 SKS</span>
+    <div class="sidebar-inner">
+
+      <div class="course-meta">
+
+        <span>TK 141132</span>
+        <span>•</span>
+        <span>Semester VII</span>
+        <span>•</span>
+        <span>2 SKS</span>
+
+      </div>
+
+      <nav
+        class="nav-list"
+        id="navList">
+
+        <a
+          href="#beranda"
+          class="active">
+          Beranda
+        </a>
+
+        <a href="#capaian">
+          Capaian
+        </a>
+
+        <a href="#konsep">
+          Konsep Dasar
+        </a>
+
+        <a href="#alur">
+          Alur MOC
+        </a>
+
+        <a href="#review">
+          Impact & Review
+        </a>
+
+        <a href="#temporary">
+          Temporary & Emergency
+        </a>
+
+        <a href="#closure">
+          Implementasi & Closure
+        </a>
+
+        <a href="#contoh">
+          Contoh & Case Study
+        </a>
+
+        <a href="#latihan">
+          Latihan
+        </a>
+
+        <a href="#quiz">
+          Tes Formatif
+        </a>
+
+        <a href="#checklist">
+          Screening Checklist
+        </a>
+
+        <a href="#glosarium">
+          Glosarium
+        </a>
+
+        <a href="#referensi">
+          Referensi
+        </a>
+
+      </nav>
+
+      <div class="progress-card">
+
+        <div class="progress-row">
+
+          <span>
+            Progress belajar
+          </span>
+
+          <strong id="progressLabel">
+            0%
+          </strong>
+
         </div>
 
-        <nav
-          class="nav-list"
-          id="navList">
+        <div class="progress-track">
 
-          <a href="#beranda" class="active">
-            Beranda
-          </a>
-
-          <a href="#capaian">
-            Capaian
-          </a>
-
-          <a href="#konsep">
-            Konsep Dasar
-          </a>
-
-          <a href="#alur">
-            Alur MOC
-          </a>
-
-          <a href="#review">
-            Impact & Review
-          </a>
-
-          <a href="#temporary">
-            Temporary & Emergency
-          </a>
-
-          <a href="#closure">
-            Implementasi & Closure
-          </a>
-
-          <a href="#contoh">
-            Contoh & Case Study
-          </a>
-
-          <a href="#latihan">
-            Latihan
-          </a>
-
-          <a href="#quiz">
-            Tes Formatif
-          </a>
-
-          <a href="#checklist">
-            Screening Checklist
-          </a>
-
-          <a href="#glosarium">
-            Glosarium
-          </a>
-
-          <a href="#referensi">
-            Referensi
-          </a>
-
-        </nav>
-
-        <div class="progress-card">
-
-          <div class="progress-row">
-            <span>Progress belajar</span>
-            <strong id="progressLabel">0%</strong>
+          <div
+            id="progressBar"
+            class="progress-bar">
           </div>
 
-          <div class="progress-track">
-            <div
-              id="progressBar"
-              class="progress-bar">
-            </div>
+        </div>
+
+        <button
+          id="resetProgress"
+          class="text-btn"
+          type="button">
+          Reset progress
+        </button>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+  <main id="main">
+
+    <!-- BERANDA -->
+
+    <section
+      id="beranda"
+      class="hero section observed">
+
+      <div class="hero-copy">
+
+        <span class="eyebrow">
+          MODUL PEMBELAJARAN DIGITAL
+        </span>
+
+        <h1>
+          Management of Change
+          <span>(MOC)</span>
+        </h1>
+
+        <p class="lead">
+
+          Belajar melihat perubahan bukan sekadar sebagai
+          pekerjaan teknis, tetapi sebagai perubahan terhadap
+          asumsi desain, cara operasi, safeguards, prosedur,
+          dan manusia.
+
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            class="btn primary"
+            href="#konsep">
+            Mulai belajar
+          </a>
+
+          <a
+            class="btn secondary"
+            href="#quiz">
+            Tes formatif
+          </a>
+
+        </div>
+
+        <div class="meta-grid">
+
+          <div>
+            <small>Mata Kuliah</small>
+            <strong>Keselamatan Pabrik Kimia</strong>
           </div>
 
-          <button
-            id="resetProgress"
-            class="text-btn"
-            type="button">
-            Reset progress
-          </button>
+          <div>
+            <small>Program Studi</small>
+            <strong>Teknik Kimia</strong>
+          </div>
+
+          <div>
+            <small>Penyusun</small>
+            <strong>
+              Ratri Puspita Wardani, S.T., M.Eng.
+            </strong>
+          </div>
+
+          <div>
+            <small>Institusi</small>
+            <strong>
+              UPN “Veteran” Jawa Timur
+            </strong>
+          </div>
 
         </div>
 
       </div>
 
-    </aside>
+      <div
+        class="hero-visual"
+        aria-hidden="true">
 
-    <!-- ======================
-         MAIN
-    ====================== -->
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
 
-    <main id="main">
-
-      <!-- HERO -->
-
-      <section
-        id="beranda"
-        class="hero section observed">
-
-        <div class="hero-copy">
-
-          <span class="eyebrow">
-            MODUL PEMBELAJARAN DIGITAL
-          </span>
-
-          <h1>
-            Management of Change
-            <span>(MOC)</span>
-          </h1>
-
-          <p class="lead">
-            Belajar melihat perubahan bukan sekadar sebagai
-            pekerjaan teknis, tetapi sebagai perubahan terhadap
-            asumsi desain, cara operasi, safeguards, prosedur,
-            dan manusia.
-          </p>
-
-          <div class="hero-actions">
-
-            <a
-              class="btn primary"
-              href="#konsep">
-              Mulai belajar
-            </a>
-
-            <a
-              class="btn secondary"
-              href="#quiz">
-              Langsung tes formatif
-            </a>
-
-          </div>
-
-          <div class="meta-grid">
-
-            <div>
-              <small>Mata Kuliah</small>
-              <strong>Keselamatan Pabrik Kimia</strong>
-            </div>
-
-            <div>
-              <small>Program Studi</small>
-              <strong>Teknik Kimia</strong>
-            </div>
-
-            <div>
-              <small>Penyusun</small>
-              <strong>Ratri Puspita Wardani, S.T., M.Eng.</strong>
-            </div>
-
-            <div>
-              <small>Institusi</small>
-              <strong>UPN “Veteran” Jawa Timur</strong>
-            </div>
-
-          </div>
-
+        <div class="core">
+          MOC
         </div>
 
-        <div
-          class="hero-visual"
-          aria-hidden="true">
+        <span class="tag t1">
+          CHANGE
+        </span>
 
-          <div class="orbit orbit-1"></div>
-          <div class="orbit orbit-2"></div>
+        <span class="tag t2">
+          HAZARD
+        </span>
 
-          <div class="core">
-            MOC
-          </div>
+        <span class="tag t3">
+          SAFEGUARD
+        </span>
 
-          <span class="tag t1">
-            CHANGE
-          </span>
+        <span class="tag t4">
+          EVIDENCE
+        </span>
 
-          <span class="tag t2">
-            HAZARD
-          </span>
+      </div>
 
-          <span class="tag t3">
-            SAFEGUARD
-          </span>
+    </section>
 
-          <span class="tag t4">
-            EVIDENCE
-          </span>
+    <!-- CAPAIAN -->
 
-        </div>
+    <section
+      id="capaian"
+      class="section observed learn-section"
+      data-section="capaian">
 
-      </section>
+      <div class="section-head">
 
-      <!-- ======================
-           CAPAIAN
-      ====================== -->
+        <span class="eyebrow">
+          B. CAPAIAN PEMBELAJARAN UNIT
+        </span>
 
-      <section
-        id="capaian"
-        class="section observed learn-section"
-        data-section="capaian">
+        <h2>
+          Apa yang harus bisa dilakukan setelah belajar?
+        </h2>
 
-        <div class="section-head">
+        <p>
+          Fokusnya bukan menghafal form, tetapi mampu
+          mengambil keputusan perubahan secara evidence-based.
+        </p>
 
-          <span class="eyebrow">
-            B. CAPAIAN PEMBELAJARAN UNIT
-          </span>
+      </div>
 
-          <h2>
-            Apa yang harus bisa dilakukan setelah belajar?
-          </h2>
+      <div class="outcome-grid">
 
-          <p>
-            Fokusnya bukan menghafal form, tetapi mampu
-            mengambil keputusan perubahan secara evidence-based.
-          </p>
+        <article class="outcome">
 
-        </div>
-
-        <div class="outcome-grid">
-
-          <article class="outcome">
-            <span>01</span>
-            <h3>Memahami</h3>
-            <p>
-              Menjelaskan posisi MOC dalam Process Safety
-              Management dan ruang lingkupnya.
-            </p>
-          </article>
-
-          <article class="outcome">
-            <span>02</span>
-            <h3>Screening</h3>
-            <p>
-              Membedakan change dan replacement in kind
-              serta menentukan kapan MOC diperlukan.
-            </p>
-          </article>
-
-          <article class="outcome">
-            <span>03</span>
-            <h3>Menganalisis</h3>
-            <p>
-              Menilai technical basis, safety impact,
-              safeguards, kebutuhan PHA/risk review,
-              PSI, dan prosedur.
-            </p>
-          </article>
-
-          <article class="outcome">
-            <span>04</span>
-            <h3>Mengendalikan</h3>
-            <p>
-              Menentukan authorization, communication,
-              training, temporary/emergency controls,
-              dan closure evidence.
-            </p>
-          </article>
-
-        </div>
-
-        <details class="learning-box">
-
-          <summary>
-            Keterkaitan MOC dengan elemen PSM
-          </summary>
-
-          <div class="table-wrap">
-
-            <table>
-
-              <thead>
-                <tr>
-                  <th>Elemen</th>
-                  <th>Peran</th>
-                  <th>Contoh keterkaitan</th>
-                </tr>
-              </thead>
-
-              <tbody>
-
-                <tr>
-                  <td>PSI</td>
-                  <td>
-                    Menjaga informasi teknis sesuai kondisi
-                  </td>
-                  <td>
-                    Perubahan equipment dapat memerlukan
-                    update datasheet/P&amp;ID
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>PHA</td>
-                  <td>
-                    Menganalisis hazard
-                  </td>
-                  <td>
-                    Perubahan signifikan dapat memerlukan
-                    hazard review
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Operating Procedures</td>
-                  <td>
-                    Menjaga praktik operasi sesuai kondisi
-                  </td>
-                  <td>
-                    Perubahan valve/configuration dapat
-                    mengubah prosedur
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Training</td>
-                  <td>
-                    Menyiapkan personel terdampak
-                  </td>
-                  <td>
-                    Operator perlu memahami perubahan
-                    sebelum startup
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>PSSR</td>
-                  <td>
-                    Memverifikasi readiness tertentu
-                    sebelum startup
-                  </td>
-                  <td>
-                    MOC dapat menjadi input PSSR pada
-                    fasilitas modifikasi
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Mechanical Integrity</td>
-                  <td>
-                    Memastikan equipment tetap layak
-                  </td>
-                  <td>
-                    Perubahan material/specification
-                    memengaruhi inspection/testing
-                  </td>
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </div>
-
-        </details>
-
-        <button
-          class="complete-btn"
-          data-complete="capaian"
-          type="button">
-          Tandai selesai
-        </button>
-
-      </section>
-
-      <!-- ======================
-           KONSEP
-      ====================== -->
-
-      <section
-        id="konsep"
-        class="section observed learn-section"
-        data-section="konsep">
-
-        <div class="section-head">
-
-          <span class="eyebrow">
-            D.1–D.5 • KONSEP DASAR
-          </span>
-
-          <h2>
-            Perubahan kecil pun bisa menggeser basis keselamatan.
-          </h2>
-
-        </div>
-
-        <div class="split">
-
-          <article class="panel accent">
-
-            <h3>
-              Kenapa perubahan perlu dikelola?
-            </h3>
-
-            <p>
-              Sistem proses dibangun di atas asumsi:
-              bahan kimia, temperatur, tekanan,
-              flow rate, material, relief capacity,
-              alarm setting, interlock logic, dan prosedur.
-              Saat satu asumsi berubah, hubungan antarbagian
-              sistem dapat ikut berubah.
-            </p>
-
-          </article>
-
-          <article class="panel">
-
-            <h3>
-              Definisi kerja MOC
-            </h3>
-
-            <p>
-              MOC adalah proses sistematis untuk memastikan
-              perubahan yang relevan terhadap keselamatan
-              proses dinilai dan dikendalikan sebelum diterapkan.
-              Fokusnya adalah kualitas keputusan dan keterlacakan
-              tindakan.
-            </p>
-
-          </article>
-
-        </div>
-
-        <div class="concept-grid">
-
-          <article class="concept-card">
-            <h3>Process chemicals</h3>
-            <p>
-              Perubahan bahan baku, komposisi,
-              grade, compatibility, atau chemistry.
-            </p>
-          </article>
-
-          <article class="concept-card">
-            <h3>Technology</h3>
-            <p>
-              Perubahan process condition,
-              control logic, operating envelope,
-              atau metode proses.
-            </p>
-          </article>
-
-          <article class="concept-card">
-            <h3>Equipment</h3>
-            <p>
-              Perubahan material, size, rating,
-              geometry, specification, atau fungsi equipment.
-            </p>
-          </article>
-
-          <article class="concept-card">
-            <h3>Procedures</h3>
-            <p>
-              Perubahan startup, shutdown,
-              alarm response, isolation, maintenance,
-              atau operating practice.
-            </p>
-          </article>
-
-          <article class="concept-card">
-            <h3>Facilities</h3>
-            <p>
-              Perubahan konfigurasi atau fasilitas
-              yang memengaruhi covered process.
-            </p>
-          </article>
-
-        </div>
-
-        <div class="rik-box">
-
-          <div>
-
-            <span class="badge">
-              REPLACEMENT IN KIND
-            </span>
-
-            <h3>
-              RIK bukan berarti “fungsinya sama”.
-            </h3>
-
-            <p>
-              RIK adalah penggantian yang tetap memenuhi
-              <strong>design specification</strong>.
-
-              Material, size/rating, geometry/design,
-              function, design basis, metallurgy,
-              atau karakteristik keselamatan yang berubah
-              perlu discreening ulang.
-            </p>
-
-          </div>
-
-          <div class="rik-checks">
-
-            <label>
-              <input type="checkbox" disabled checked>
-              Material sesuai?
-            </label>
-
-            <label>
-              <input type="checkbox" disabled checked>
-              Size/rating sesuai?
-            </label>
-
-            <label>
-              <input type="checkbox" disabled checked>
-              Geometry/design sesuai?
-            </label>
-
-            <label>
-              <input type="checkbox" disabled checked>
-              Function sesuai?
-            </label>
-
-          </div>
-
-        </div>
-
-        <button
-          class="complete-btn"
-          data-complete="konsep"
-          type="button">
-          Tandai selesai
-        </button>
-
-      </section>
-
-      <!-- ======================
-           ALUR MOC
-      ====================== -->
-
-      <section
-        id="alur"
-        class="section observed learn-section"
-        data-section="alur">
-
-        <div class="section-head">
-
-          <span class="eyebrow">
-            D.6–D.8 • ALUR MOC
-          </span>
-
-          <h2>
-            Dari “apa yang berubah?” sampai technical basis.
-          </h2>
-
-        </div>
-
-        <div class="timeline">
-
-          <div class="step">
-            <span>1</span>
-            <div>
-              <strong>Identify</strong>
-              <small>Apa yang berubah?</small>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>2</span>
-            <div>
-              <strong>Screen</strong>
-              <small>Apakah MOC diperlukan?</small>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>3</span>
-            <div>
-              <strong>Define Technical Basis</strong>
-              <small>
-                Existing, proposed, alasan,
-                design constraints.
-              </small>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>4</span>
-            <div>
-              <strong>Assess Impact</strong>
-              <small>
-                Apa dampak keselamatannya?
-              </small>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>5</span>
-            <div>
-              <strong>Safeguards / Actions</strong>
-              <small>
-                Apa yang harus dikendalikan?
-              </small>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>6</span>
-            <div>
-              <strong>Authorize</strong>
-              <small>
-                Siapa yang berwenang?
-              </small>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>7</span>
-            <div>
-              <strong>Communicate / Train</strong>
-              <small>
-                Siapa yang harus siap?
-              </small>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>8</span>
-            <div>
-              <strong>Implement</strong>
-              <small>
-                Apa evidence implementasi?
-              </small>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>9</span>
-            <div>
-              <strong>Verify / Close</strong>
-              <small>
-                Apakah kondisi final sesuai?
-              </small>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="callout">
-          <strong>Screening adalah gerbang pertama.</strong>
-          Keputusan “MOC tidak diperlukan” juga harus
-          punya alasan yang terdokumentasi.
-        </div>
-
-        <div class="table-wrap">
-
-          <table>
-
-            <thead>
-              <tr>
-                <th>Komponen Technical Basis</th>
-                <th>Contoh evidence</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr>
-                <td>Existing condition</td>
-                <td>P&amp;ID / as-built / datasheet</td>
-              </tr>
-
-              <tr>
-                <td>Proposed condition</td>
-                <td>Design drawing / specification</td>
-              </tr>
-
-              <tr>
-                <td>Reason</td>
-                <td>
-                  Reliability / production /
-                  safety justification
-                </td>
-              </tr>
-
-              <tr>
-                <td>Engineering basis</td>
-                <td>
-                  Calculation / vendor data / code
-                </td>
-              </tr>
-
-              <tr>
-                <td>Limits</td>
-                <td>
-                  Operating envelope dan constraints
-                </td>
-              </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
-        <button
-          class="complete-btn"
-          data-complete="alur"
-          type="button">
-          Tandai selesai
-        </button>
-
-      </section>
-
-      <!-- ======================
-           IMPACT REVIEW
-      ====================== -->
-
-      <section
-        id="review"
-        class="section observed learn-section"
-        data-section="review">
-
-        <div class="section-head">
-
-          <span class="eyebrow">
-            D.9–D.12 • IMPACT & REVIEW
-          </span>
-
-          <h2>
-            Jangan hanya melihat komponen baru.
-            Lihat sistem yang terdampak.
-          </h2>
-
-        </div>
-
-        <div class="risk-grid">
-
-          <article>
-            <strong>Process hazard</strong>
-            <span>Apakah hazard berubah?</span>
-          </article>
-
-          <article>
-            <strong>Containment</strong>
-            <span>Apakah peluang release berubah?</span>
-          </article>
-
-          <article>
-            <strong>Fire / explosion</strong>
-            <span>
-              Apakah ignition atau consequence berubah?
-            </span>
-          </article>
-
-          <article>
-            <strong>Toxic exposure</strong>
-            <span>
-              Apakah exposure scenario berubah?
-            </span>
-          </article>
-
-          <article>
-            <strong>Safeguards</strong>
-            <span>
-              Apakah protection tetap efektif?
-            </span>
-          </article>
-
-          <article>
-            <strong>Human factors</strong>
-            <span>
-              Apakah task atau workload berubah?
-            </span>
-          </article>
-
-        </div>
-
-        <article class="panel">
+          <span>01</span>
 
           <h3>
-            PHA / Risk Review
+            Memahami
           </h3>
 
           <p>
-            MOC tidak selalu berarti PHA penuh.
-            Tingkat review dapat berupa PHA, HAZOP,
-            What-If, checklist review, LOPA,
-            engineering calculation, atau metode lain
-            sesuai karakter perubahan dan prosedur organisasi.
+            Menjelaskan posisi MOC dalam Process Safety
+            Management dan ruang lingkupnya.
           </p>
 
         </article>
 
-        <div class="two-col-list">
+        <article class="outcome">
 
-          <div>
+          <span>02</span>
 
-            <h3>
-              PSI yang mungkin terdampak
-            </h3>
+          <h3>
+            Screening
+          </h3>
 
-            <ul>
-              <li>PFD / P&amp;ID</li>
-              <li>Datasheet & equipment specification</li>
-              <li>Process chemistry & operating limits</li>
-              <li>Control narrative & cause-and-effect</li>
-              <li>Relief information</li>
-              <li>Dokumen teknis relevan lainnya</li>
-            </ul>
+          <p>
+            Membedakan change dan replacement in kind
+            serta menentukan kapan MOC diperlukan.
+          </p>
 
-          </div>
+        </article>
 
-          <div>
+        <article class="outcome">
 
-            <h3>
-              Operating practices yang perlu dicek
-            </h3>
+          <span>03</span>
 
-            <ul>
-              <li>Startup / shutdown</li>
-              <li>Alarm response</li>
-              <li>Isolation</li>
-              <li>Maintenance</li>
-              <li>Sampling</li>
-              <li>Emergency response</li>
-            </ul>
+          <h3>
+            Menganalisis
+          </h3>
 
-          </div>
+          <p>
+            Menilai technical basis, safety impact,
+            safeguards, kebutuhan PHA/risk review,
+            PSI, dan prosedur.
+          </p>
 
-        </div>
+        </article>
 
-        <button
-          class="complete-btn"
-          data-complete="review"
-          type="button">
-          Tandai selesai
-        </button>
+        <article class="outcome">
 
-      </section>
+          <span>04</span>
 
-      <!-- ======================
-           TEMPORARY
-      ====================== -->
+          <h3>
+            Mengendalikan
+          </h3>
 
-      <section
-        id="temporary"
-        class="section observed learn-section"
-        data-section="temporary">
+          <p>
+            Menentukan authorization, communication,
+            training, temporary/emergency controls,
+            dan closure evidence.
+          </p>
 
-        <div class="section-head">
+        </article>
 
-          <span class="eyebrow">
-            D.13–D.14 • TEMPORARY & EMERGENCY
-          </span>
+      </div>
 
-          <h2>
-            Sementara bukan berarti bebas kontrol.
-          </h2>
+      <details class="learning-box">
 
-        </div>
-
-        <div class="split">
-
-          <article class="panel accent-yellow">
-
-            <span class="badge yellow">
-              TEMPORARY CHANGE
-            </span>
-
-            <h3>
-              Harus punya batas waktu dan jalan pulang.
-            </h3>
-
-            <p>
-              Dokumen perlu menjelaskan alasan,
-              durasi, hazard, safeguards, monitoring,
-              approval, dan kriteria restoration.
-
-              Temporary change tidak boleh berubah
-              menjadi permanent tanpa review.
-            </p>
-
-          </article>
-
-          <article class="panel accent-red">
-
-            <span class="badge red">
-              EMERGENCY CHANGE
-            </span>
-
-            <h3>
-              Urgent ≠ tanpa process safety.
-            </h3>
-
-            <p>
-              Emergency change membutuhkan disiplin
-              review sesuai kondisi.
-
-              Setelah kondisi stabil, lakukan
-              retrospective review dan pastikan
-              documentation, procedures, training,
-              dan closure sesuai kebutuhan.
-            </p>
-
-          </article>
-
-        </div>
-
-        <div class="comm-grid">
-
-          <div>
-            <strong>Operators</strong>
-            <span>
-              Perubahan operasi, alarm, prosedur
-            </span>
-          </div>
-
-          <div>
-            <strong>Maintenance</strong>
-            <span>
-              Equipment, isolation, testing
-            </span>
-          </div>
-
-          <div>
-            <strong>Contractors</strong>
-            <span>
-              Task-specific hazards
-            </span>
-          </div>
-
-          <div>
-            <strong>Emergency responders</strong>
-            <span>
-              Changed scenario / response
-            </span>
-          </div>
-
-          <div>
-            <strong>Supervisors</strong>
-            <span>
-              Authorization dan readiness
-            </span>
-          </div>
-
-        </div>
-
-        <button
-          class="complete-btn"
-          data-complete="temporary"
-          type="button">
-          Tandai selesai
-        </button>
-
-      </section>
-
-      <!-- ======================
-           CLOSURE
-      ====================== -->
-
-      <section
-        id="closure"
-        class="section observed learn-section"
-        data-section="closure">
-
-        <div class="section-head">
-
-          <span class="eyebrow">
-            D.15–D.19 • IMPLEMENTASI & CLOSURE
-          </span>
-
-          <h2>
-            MOC belum selesai hanya karena
-            pekerjaan fisiknya selesai.
-          </h2>
-
-        </div>
-
-        <div class="evidence-chain">
-
-          <span>Change Request</span>
-          <b>→</b>
-
-          <span>Technical Basis</span>
-          <b>→</b>
-
-          <span>Impact Assessment</span>
-          <b>→</b>
-
-          <span>Actions</span>
-          <b>→</b>
-
-          <span>Approval</span>
-          <b>→</b>
-
-          <span>Implementation Evidence</span>
-          <b>→</b>
-
-          <span>Closure</span>
-
-        </div>
+        <summary>
+          Keterkaitan MOC dengan elemen PSM
+        </summary>
 
         <div class="table-wrap">
 
           <table>
 
             <thead>
+
               <tr>
-                <th>Kriteria closure</th>
-                <th>Evidence</th>
+                <th>Elemen</th>
+                <th>Peran</th>
+                <th>Contoh keterkaitan</th>
               </tr>
+
             </thead>
 
             <tbody>
 
               <tr>
-                <td>Physical implementation</td>
-                <td>Inspection / field verification</td>
+                <td>PSI</td>
+                <td>
+                  Menjaga informasi teknis sesuai kondisi
+                </td>
+                <td>
+                  Perubahan equipment dapat memerlukan
+                  update datasheet/P&amp;ID
+                </td>
               </tr>
 
               <tr>
-                <td>Testing</td>
-                <td>Test / commissioning record</td>
+                <td>PHA</td>
+                <td>
+                  Menganalisis hazard
+                </td>
+                <td>
+                  Perubahan signifikan dapat memerlukan
+                  hazard review
+                </td>
               </tr>
 
               <tr>
-                <td>Documentation</td>
-                <td>Updated PSI / P&amp;ID / procedure</td>
+                <td>Operating Procedures</td>
+                <td>
+                  Menjaga praktik operasi sesuai kondisi
+                </td>
+                <td>
+                  Perubahan configuration dapat
+                  mengubah prosedur
+                </td>
               </tr>
 
               <tr>
                 <td>Training</td>
-                <td>Training record</td>
+                <td>
+                  Menyiapkan personel terdampak
+                </td>
+                <td>
+                  Operator perlu memahami perubahan
+                  sebelum startup
+                </td>
               </tr>
 
               <tr>
-                <td>Actions</td>
-                <td>Closed action register</td>
+                <td>PSSR</td>
+                <td>
+                  Memverifikasi readiness sebelum startup
+                </td>
+                <td>
+                  MOC dapat menjadi input PSSR
+                  pada fasilitas modifikasi
+                </td>
               </tr>
 
               <tr>
-                <td>Approval</td>
-                <td>Final closure authorization</td>
+                <td>Mechanical Integrity</td>
+                <td>
+                  Memastikan equipment tetap layak
+                </td>
+                <td>
+                  Perubahan material atau specification
+                  memengaruhi inspection/testing
+                </td>
               </tr>
 
             </tbody>
@@ -2307,1817 +1662,2782 @@
 
         </div>
 
-        <details class="learning-box">
+      </details>
 
-          <summary>
-            Kesalahan umum dalam MOC
-          </summary>
+      <button
+        class="complete-btn"
+        data-complete="capaian"
+        type="button">
+        Tandai selesai
+      </button>
 
-          <ul class="clean-list">
+    </section>
 
-            <li>
-              MOC dimulai setelah perubahan dipasang.
-            </li>
+    <!-- KONSEP DASAR -->
 
-            <li>
-              Perubahan dianggap RIK tanpa verifikasi.
-            </li>
+    <section
+      id="konsep"
+      class="section observed learn-section"
+      data-section="konsep">
 
-            <li>
-              Impact assessment hanya membahas
-              equipment baru.
-            </li>
+      <div class="section-head">
 
-            <li>
-              Temporary change tidak punya expiry date.
-            </li>
+        <span class="eyebrow">
+          D.1–D.5 • KONSEP DASAR
+        </span>
 
-            <li>
-              Operator tidak dilatih atau dokumen
-              tidak diperbarui.
-            </li>
+        <h2>
+          Perubahan kecil pun bisa menggeser basis keselamatan.
+        </h2>
 
-            <li>
-              Closure hanya berdasarkan pernyataan lisan.
-            </li>
+      </div>
 
-            <li>
-              Approval dilakukan tanpa multidisciplinary
-              review yang memadai.
-            </li>
+      <div class="split">
 
-          </ul>
+        <article class="panel accent">
 
-        </details>
+          <h3>
+            Kenapa perubahan perlu dikelola?
+          </h3>
 
-        <button
-          class="complete-btn"
-          data-complete="closure"
-          type="button">
-          Tandai selesai
-        </button>
+          <p>
+            Sistem proses dibangun di atas asumsi:
+            bahan kimia, temperatur, tekanan,
+            flow rate, material, relief capacity,
+            alarm setting, interlock logic, dan prosedur.
 
-      </section>
+            Saat satu asumsi berubah, hubungan antarbagian
+            sistem dapat ikut berubah.
+          </p>
 
-      <!-- ======================
-           CONTOH
-      ====================== -->
+        </article>
 
-      <section
-        id="contoh"
-        class="section observed learn-section"
-        data-section="contoh">
+        <article class="panel">
 
-        <div class="section-head">
+          <h3>
+            Definisi kerja MOC
+          </h3>
 
-          <span class="eyebrow">
-            D.20–F • CONTOH & CASE STUDY
+          <p>
+            MOC adalah proses sistematis untuk memastikan
+            perubahan yang relevan terhadap keselamatan
+            proses dinilai dan dikendalikan sebelum diterapkan.
+
+            Fokusnya adalah kualitas keputusan dan
+            keterlacakan tindakan.
+          </p>
+
+        </article>
+
+      </div>
+
+      <div class="concept-grid">
+
+        <article class="concept-card">
+          <h3>Process chemicals</h3>
+          <p>
+            Bahan baku, komposisi, grade,
+            compatibility, atau chemistry.
+          </p>
+        </article>
+
+        <article class="concept-card">
+          <h3>Technology</h3>
+          <p>
+            Process condition, control logic,
+            operating envelope, atau metode proses.
+          </p>
+        </article>
+
+        <article class="concept-card">
+          <h3>Equipment</h3>
+          <p>
+            Material, size, rating, geometry,
+            specification, atau fungsi equipment.
+          </p>
+        </article>
+
+        <article class="concept-card">
+          <h3>Procedures</h3>
+          <p>
+            Startup, shutdown, alarm response,
+            isolation, maintenance, atau operating practice.
+          </p>
+        </article>
+
+        <article class="concept-card">
+          <h3>Facilities</h3>
+          <p>
+            Konfigurasi atau fasilitas yang
+            memengaruhi covered process.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="rik-box">
+
+        <div>
+
+          <span class="badge">
+            REPLACEMENT IN KIND
           </span>
 
-          <h2>
-            Latih cara berpikir, bukan sekadar klasifikasi.
-          </h2>
+          <h3>
+            RIK bukan berarti “fungsinya sama”.
+          </h3>
+
+          <p>
+            Replacement in Kind adalah penggantian yang
+            tetap memenuhi <strong>design specification</strong>.
+
+            Material, size/rating, geometry/design,
+            function, design basis, metallurgy,
+            atau karakteristik keselamatan yang berubah
+            perlu discreening ulang.
+          </p>
 
         </div>
 
-        <div class="case-grid">
+        <div class="rik-checks">
 
-          <article class="case-card">
+          <label>
+            <input
+              type="checkbox"
+              disabled
+              checked
+            />
+            Material sesuai?
+          </label>
 
-            <span class="case-no">
-              Worked Example 1
-            </span>
+          <label>
+            <input
+              type="checkbox"
+              disabled
+              checked
+            />
+            Size/rating sesuai?
+          </label>
 
-            <h3>
-              Modifikasi Valve
-            </h3>
+          <label>
+            <input
+              type="checkbox"
+              disabled
+              checked
+            />
+            Geometry/design sesuai?
+          </label>
 
-            <p>
-              Fungsi valve tetap, tetapi material dan
-              compatibility berubah.
-
-              Jangan langsung menyebutnya RIK;
-              mulai dari specification, rating,
-              corrosion/erosion, dokumen, test,
-              dan closure.
-            </p>
-
-          </article>
-
-          <article class="case-card">
-
-            <span class="case-no">
-              Worked Example 2
-            </span>
-
-            <h3>
-              Throughput 100 → 120 m³/h
-            </h3>
-
-            <p>
-              Walau tidak ada equipment baru,
-              perubahan operating condition dapat
-              memengaruhi pressure drop,
-              pump operating point, heat removal,
-              relief scenario, residence time,
-              dan process stability.
-            </p>
-
-          </article>
-
-          <article class="case-card">
-
-            <span class="case-no">
-              Mini Case
-            </span>
-
-            <h3>
-              Material Gasket
-            </h3>
-
-            <p>
-              Material Y memiliki temperature limit
-              dan chemical compatibility berbeda.
-
-              Uji apakah RIK masih dapat dipertahankan.
-            </p>
-
-          </article>
-
-          <article class="case-card">
-
-            <span class="case-no">
-              Mini Case
-            </span>
-
-            <h3>
-              Alarm Set Point
-            </h3>
-
-            <p>
-              High-level alarm 80% diusulkan
-              menjadi 90%.
-
-              Evaluasi operator response,
-              safety margin, overfill,
-              procedure, dan emergency response.
-            </p>
-
-          </article>
-
-          <article class="case-card">
-
-            <span class="case-no">
-              Case Study 1
-            </span>
-
-            <h3>
-              Modifikasi Jalur Transfer
-            </h3>
-
-            <p>
-              Valve isolation baru meningkatkan
-              maintainability tetapi dapat mengisolasi
-              equipment dari protective system tertentu.
-
-              Analisis kondisi valve tertutup dan
-              kebutuhan targeted risk review.
-            </p>
-
-          </article>
-
-          <article class="case-card">
-
-            <span class="case-no">
-              Case Study 2
-            </span>
-
-            <h3>
-              Temporary Operating Change
-            </h3>
-
-            <p>
-              Pompa standby memiliki operating
-              envelope berbeda dan digunakan
-              maksimal 14 hari.
-
-              Fokus pada limits, safeguards,
-              monitoring, procedure, authorization,
-              contingency, dan restoration.
-            </p>
-
-          </article>
+          <label>
+            <input
+              type="checkbox"
+              disabled
+              checked
+            />
+            Function sesuai?
+          </label>
 
         </div>
 
-        <details class="learning-box">
+      </div>
 
-          <summary>
-            Insiden & pembelajaran MOC di modul
-          </summary>
+      <button
+        class="complete-btn"
+        data-complete="konsep"
+        type="button">
+        Tandai selesai
+      </button>
 
-          <div class="incident-grid">
+    </section>
 
-            <div>
-              <strong>
-                Equilon Enterprises (1998)
-              </strong>
+    <!-- ALUR -->
 
-              <p>
-                Perubahan atau deviasi operasional
-                perlu masuk sistem review,
-                meski bukan proyek engineering besar.
-              </p>
-            </div>
+    <section
+      id="alur"
+      class="section observed learn-section"
+      data-section="alur">
 
-            <div>
-              <strong>
-                CONDEA Vista (1998)
-              </strong>
+      <div class="section-head">
 
-              <p>
-                Perubahan teknologi perlu dianalisis
-                sampai maintenance, process behavior,
-                dan kondisi abnormal.
-              </p>
-            </div>
+        <span class="eyebrow">
+          D.6–D.8 • ALUR MOC
+        </span>
 
-            <div>
-              <strong>
-                BP Texas City (2005)
-              </strong>
+        <h2>
+          Dari “apa yang berubah?” sampai technical basis.
+        </h2>
 
-              <p>
-                Perubahan organisasi, staffing,
-                budget, dan policy dapat berdampak
-                pada process safety.
-              </p>
-            </div>
+      </div>
 
-            <div>
-              <strong>
-                Williams Olefins (2013)
-              </strong>
+      <div class="timeline">
 
-              <p>
-                MOC perlu melihat keseluruhan proses
-                terdampak dan interaction hazards,
-                bukan hanya equipment baru.
-              </p>
-            </div>
+        <div class="step">
+
+          <span>1</span>
+
+          <div>
+            <strong>Identify</strong>
+            <small>Apa yang berubah?</small>
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span>2</span>
+
+          <div>
+            <strong>Screen</strong>
+            <small>Apakah MOC diperlukan?</small>
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span>3</span>
+
+          <div>
+            <strong>Define Technical Basis</strong>
+            <small>
+              Existing, proposed, alasan,
+              dan design constraints.
+            </small>
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span>4</span>
+
+          <div>
+            <strong>Assess Impact</strong>
+            <small>
+              Apa dampak keselamatannya?
+            </small>
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span>5</span>
+
+          <div>
+            <strong>Safeguards / Actions</strong>
+            <small>
+              Apa yang harus dikendalikan?
+            </small>
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span>6</span>
+
+          <div>
+            <strong>Authorize</strong>
+            <small>
+              Siapa yang berwenang?
+            </small>
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span>7</span>
+
+          <div>
+            <strong>Communicate / Train</strong>
+            <small>
+              Siapa yang harus siap?
+            </small>
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span>8</span>
+
+          <div>
+            <strong>Implement</strong>
+            <small>
+              Apa evidence implementasi?
+            </small>
+          </div>
+
+        </div>
+
+        <div class="step">
+
+          <span>9</span>
+
+          <div>
+            <strong>Verify / Close</strong>
+            <small>
+              Apakah kondisi final sesuai?
+            </small>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="callout">
+
+        <strong>
+          Screening adalah gerbang pertama.
+        </strong>
+
+        Keputusan “MOC tidak diperlukan” juga harus
+        punya alasan yang terdokumentasi.
+
+      </div>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>
+                Komponen Technical Basis
+              </th>
+              <th>
+                Contoh evidence
+              </th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Existing condition</td>
+              <td>P&amp;ID / as-built / datasheet</td>
+            </tr>
+
+            <tr>
+              <td>Proposed condition</td>
+              <td>Design drawing / specification</td>
+            </tr>
+
+            <tr>
+              <td>Reason</td>
+              <td>
+                Reliability / production /
+                safety justification
+              </td>
+            </tr>
+
+            <tr>
+              <td>Engineering basis</td>
+              <td>
+                Calculation / vendor data / code
+              </td>
+            </tr>
+
+            <tr>
+              <td>Limits</td>
+              <td>
+                Operating envelope dan constraints
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <button
+        class="complete-btn"
+        data-complete="alur"
+        type="button">
+        Tandai selesai
+      </button>
+
+    </section>
+
+    <!-- REVIEW -->
+
+    <section
+      id="review"
+      class="section observed learn-section"
+      data-section="review">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          D.9–D.12 • IMPACT & REVIEW
+        </span>
+
+        <h2>
+          Jangan hanya melihat komponen baru.
+          Lihat sistem yang terdampak.
+        </h2>
+
+      </div>
+
+      <div class="risk-grid">
+
+        <article>
+          <strong>Process hazard</strong>
+          <span>
+            Apakah hazard berubah?
+          </span>
+        </article>
+
+        <article>
+          <strong>Containment</strong>
+          <span>
+            Apakah peluang release berubah?
+          </span>
+        </article>
+
+        <article>
+          <strong>Fire / explosion</strong>
+          <span>
+            Apakah ignition atau consequence berubah?
+          </span>
+        </article>
+
+        <article>
+          <strong>Toxic exposure</strong>
+          <span>
+            Apakah exposure scenario berubah?
+          </span>
+        </article>
+
+        <article>
+          <strong>Safeguards</strong>
+          <span>
+            Apakah protection tetap efektif?
+          </span>
+        </article>
+
+        <article>
+          <strong>Human factors</strong>
+          <span>
+            Apakah task atau workload berubah?
+          </span>
+        </article>
+
+      </div>
+
+      <article class="panel">
+
+        <h3>
+          PHA / Risk Review
+        </h3>
+
+        <p>
+          MOC tidak selalu berarti PHA penuh.
+
+          Tingkat review dapat berupa PHA, HAZOP,
+          What-If, checklist review, LOPA,
+          engineering calculation, atau metode lain
+          sesuai karakter perubahan dan prosedur organisasi.
+        </p>
+
+      </article>
+
+      <div class="two-col-list">
+
+        <div>
+
+          <h3>
+            PSI yang mungkin terdampak
+          </h3>
+
+          <ul>
+            <li>PFD / P&amp;ID</li>
+            <li>Datasheet & equipment specification</li>
+            <li>Process chemistry & operating limits</li>
+            <li>Control narrative & cause-and-effect</li>
+            <li>Relief information</li>
+            <li>Dokumen teknis relevan lainnya</li>
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>
+            Operating practices yang perlu dicek
+          </h3>
+
+          <ul>
+            <li>Startup / shutdown</li>
+            <li>Alarm response</li>
+            <li>Isolation</li>
+            <li>Maintenance</li>
+            <li>Sampling</li>
+            <li>Emergency response</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <button
+        class="complete-btn"
+        data-complete="review"
+        type="button">
+        Tandai selesai
+      </button>
+
+    </section>
+
+    <!-- TEMPORARY -->
+
+    <section
+      id="temporary"
+      class="section observed learn-section"
+      data-section="temporary">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          D.13–D.14 • TEMPORARY & EMERGENCY
+        </span>
+
+        <h2>
+          Sementara bukan berarti bebas kontrol.
+        </h2>
+
+      </div>
+
+      <div class="split">
+
+        <article class="panel accent-yellow">
+
+          <span class="badge yellow">
+            TEMPORARY CHANGE
+          </span>
+
+          <h3>
+            Harus punya batas waktu dan jalan pulang.
+          </h3>
+
+          <p>
+            Dokumen perlu menjelaskan alasan,
+            durasi, hazard, safeguards, monitoring,
+            approval, dan kriteria restoration.
+
+            Temporary change tidak boleh berubah
+            menjadi permanent tanpa review.
+          </p>
+
+        </article>
+
+        <article class="panel accent-red">
+
+          <span class="badge red">
+            EMERGENCY CHANGE
+          </span>
+
+          <h3>
+            Urgent ≠ tanpa process safety.
+          </h3>
+
+          <p>
+            Emergency change membutuhkan disiplin
+            review sesuai kondisi.
+
+            Setelah kondisi stabil, lakukan
+            retrospective review dan pastikan
+            documentation, procedures, training,
+            dan closure sesuai kebutuhan.
+          </p>
+
+        </article>
+
+      </div>
+
+      <div class="comm-grid">
+
+        <div>
+          <strong>Operators</strong>
+          <span>
+            Operasi, alarm, procedure
+          </span>
+        </div>
+
+        <div>
+          <strong>Maintenance</strong>
+          <span>
+            Equipment, isolation, testing
+          </span>
+        </div>
+
+        <div>
+          <strong>Contractors</strong>
+          <span>
+            Task-specific hazards
+          </span>
+        </div>
+
+        <div>
+          <strong>Emergency responders</strong>
+          <span>
+            Changed scenario / response
+          </span>
+        </div>
+
+        <div>
+          <strong>Supervisors</strong>
+          <span>
+            Authorization dan readiness
+          </span>
+        </div>
+
+      </div>
+
+      <button
+        class="complete-btn"
+        data-complete="temporary"
+        type="button">
+        Tandai selesai
+      </button>
+
+    </section>
+
+    <!-- CLOSURE -->
+
+    <section
+      id="closure"
+      class="section observed learn-section"
+      data-section="closure">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          D.15–D.19 • IMPLEMENTASI & CLOSURE
+        </span>
+
+        <h2>
+          MOC belum selesai hanya karena
+          pekerjaan fisiknya selesai.
+        </h2>
+
+      </div>
+
+      <div class="evidence-chain">
+
+        <span>Change Request</span>
+        <b>→</b>
+
+        <span>Technical Basis</span>
+        <b>→</b>
+
+        <span>Impact Assessment</span>
+        <b>→</b>
+
+        <span>Actions</span>
+        <b>→</b>
+
+        <span>Approval</span>
+        <b>→</b>
+
+        <span>Implementation Evidence</span>
+        <b>→</b>
+
+        <span>Closure</span>
+
+      </div>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>
+                Kriteria closure
+              </th>
+
+              <th>
+                Evidence
+              </th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Physical implementation</td>
+              <td>Inspection / field verification</td>
+            </tr>
+
+            <tr>
+              <td>Testing</td>
+              <td>Test / commissioning record</td>
+            </tr>
+
+            <tr>
+              <td>Documentation</td>
+              <td>
+                Updated PSI / P&amp;ID / procedure
+              </td>
+            </tr>
+
+            <tr>
+              <td>Training</td>
+              <td>Training record</td>
+            </tr>
+
+            <tr>
+              <td>Actions</td>
+              <td>Closed action register</td>
+            </tr>
+
+            <tr>
+              <td>Approval</td>
+              <td>Final closure authorization</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <details class="learning-box">
+
+        <summary>
+          Kesalahan umum dalam MOC
+        </summary>
+
+        <ul class="clean-list">
+
+          <li>
+            MOC dimulai setelah perubahan dipasang.
+          </li>
+
+          <li>
+            Perubahan dianggap RIK tanpa verifikasi.
+          </li>
+
+          <li>
+            Impact assessment hanya membahas
+            equipment baru.
+          </li>
+
+          <li>
+            Temporary change tidak punya expiry date.
+          </li>
+
+          <li>
+            Operator tidak dilatih atau dokumen
+            tidak diperbarui.
+          </li>
+
+          <li>
+            Closure hanya berdasarkan pernyataan lisan.
+          </li>
+
+          <li>
+            Approval tanpa multidisciplinary review
+            yang memadai.
+          </li>
+
+        </ul>
+
+      </details>
+
+      <button
+        class="complete-btn"
+        data-complete="closure"
+        type="button">
+        Tandai selesai
+      </button>
+
+    </section>
+
+    <!-- CONTOH -->
+
+    <section
+      id="contoh"
+      class="section observed learn-section"
+      data-section="contoh">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          D.20–F • CONTOH & CASE STUDY
+        </span>
+
+        <h2>
+          Latih cara berpikir, bukan sekadar klasifikasi.
+        </h2>
+
+      </div>
+
+      <div class="case-grid">
+
+        <article class="case-card">
+
+          <span class="case-no">
+            Worked Example 1
+          </span>
+
+          <h3>
+            Modifikasi Valve
+          </h3>
+
+          <p>
+            Fungsi valve tetap, tetapi material dan
+            compatibility berubah.
+
+            Mulai dari specification, rating,
+            compatibility, dokumen, test,
+            dan closure.
+          </p>
+
+        </article>
+
+        <article class="case-card">
+
+          <span class="case-no">
+            Worked Example 2
+          </span>
+
+          <h3>
+            Throughput 100 → 120 m³/h
+          </h3>
+
+          <p>
+            Perubahan operating condition dapat
+            memengaruhi pressure drop,
+            pump operating point, heat removal,
+            relief scenario, residence time,
+            dan process stability.
+          </p>
+
+        </article>
+
+        <article class="case-card">
+
+          <span class="case-no">
+            Mini Case
+          </span>
+
+          <h3>
+            Material Gasket
+          </h3>
+
+          <p>
+            Material Y memiliki temperature limit
+            dan chemical compatibility berbeda.
+
+            Uji apakah RIK masih dapat dipertahankan.
+          </p>
+
+        </article>
+
+        <article class="case-card">
+
+          <span class="case-no">
+            Mini Case
+          </span>
+
+          <h3>
+            Alarm Set Point
+          </h3>
+
+          <p>
+            High-level alarm 80% diusulkan
+            menjadi 90%.
+
+            Evaluasi operator response,
+            safety margin, overfill,
+            procedure, dan emergency response.
+          </p>
+
+        </article>
+
+        <article class="case-card">
+
+          <span class="case-no">
+            Case Study 1
+          </span>
+
+          <h3>
+            Modifikasi Jalur Transfer
+          </h3>
+
+          <p>
+            Valve isolation baru meningkatkan
+            maintainability tetapi dapat mengisolasi
+            equipment dari protective system tertentu.
+          </p>
+
+        </article>
+
+        <article class="case-card">
+
+          <span class="case-no">
+            Case Study 2
+          </span>
+
+          <h3>
+            Temporary Operating Change
+          </h3>
+
+          <p>
+            Pompa standby memiliki operating envelope
+            berbeda dan digunakan maksimal 14 hari.
+
+            Fokus pada limits, safeguards,
+            monitoring, procedure, authorization,
+            contingency, dan restoration.
+          </p>
+
+        </article>
+
+      </div>
+
+      <details class="learning-box">
+
+        <summary>
+          Insiden & pembelajaran MOC
+        </summary>
+
+        <div class="incident-grid">
+
+          <div>
+
+            <strong>
+              Equilon Enterprises (1998)
+            </strong>
+
+            <p>
+              Perubahan atau deviasi operasional
+              perlu masuk sistem review,
+              meski bukan proyek engineering besar.
+            </p>
 
           </div>
 
-        </details>
+          <div>
 
-        <button
-          class="complete-btn"
-          data-complete="contoh"
-          type="button">
-          Tandai selesai
-        </button>
-
-      </section>
-
-      <!-- ======================
-           LATIHAN
-      ====================== -->
-
-      <section
-        id="latihan"
-        class="section observed learn-section"
-        data-section="latihan">
-
-        <div class="section-head">
-
-          <span class="eyebrow">
-            H. LATIHAN / TUGAS
-          </span>
-
-          <h2>
-            Screening dulu. Lalu minta evidence.
-          </h2>
-
-        </div>
-
-        <div class="table-wrap">
-
-          <table>
-
-            <thead>
-              <tr>
-                <th>Skenario</th>
-                <th>Pertanyaan Anda</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr>
-                <td>
-                  Valve diganti identik sesuai
-                  design specification
-                </td>
-                <td>
-                  Apakah MOC diperlukan?
-                  Evidence apa yang diminta?
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Valve diganti dengan rating berbeda
-                </td>
-                <td>
-                  Apakah masih RIK?
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Bahan baku diganti dengan
-                  chemical grade berbeda
-                </td>
-                <td>
-                  Apa yang berubah pada
-                  technical basis dan hazard?
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Set point alarm diubah
-                </td>
-                <td>
-                  Apa dampaknya ke operator response
-                  dan safety margin?
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Prosedur startup diubah
-                </td>
-                <td>
-                  Siapa yang terdampak
-                  dan perlu training?
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Temporary bypass 7 hari
-                </td>
-                <td>
-                  Apa expiry dan restoration plan?
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  P&amp;ID diubah karena rerouting pipe
-                </td>
-                <td>
-                  Bagian mana yang perlu
-                  impact assessment?
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Perubahan staffing memengaruhi
-                  covered process
-                </td>
-                <td>
-                  Apa human factors dan
-                  organizational impact-nya?
-                </td>
-              </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
-        <div class="assignment-grid">
-
-          <article>
-
-            <h3>
-              Latihan 2 • Technical Basis
-            </h3>
+            <strong>
+              CONDEA Vista (1998)
+            </strong>
 
             <p>
-              Pilih satu skenario dan susun technical
-              basis 250–400 kata: existing, proposed,
-              alasan, design constraints, dan evidence.
+              Perubahan teknologi perlu dianalisis
+              sampai maintenance, process behavior,
+              dan kondisi abnormal.
             </p>
 
-          </article>
+          </div>
 
-          <article>
+          <div>
 
-            <h3>
-              Latihan 3 • Impact Assessment
-            </h3>
+            <strong>
+              BP Texas City (2005)
+            </strong>
 
             <p>
-              Nilai kategori hazard, containment,
-              fire/explosion, toxic exposure,
-              safeguards, procedures, training,
-              emergency response, mechanical integrity,
-              dan human factors.
+              Perubahan organisasi, staffing,
+              budget, dan policy dapat berdampak
+              pada process safety.
             </p>
 
-          </article>
+          </div>
+
+          <div>
+
+            <strong>
+              Williams Olefins (2013)
+            </strong>
+
+            <p>
+              MOC perlu melihat keseluruhan proses
+              terdampak dan interaction hazards,
+              bukan hanya equipment baru.
+            </p>
+
+          </div>
 
         </div>
 
-        <button
-          class="complete-btn"
-          data-complete="latihan"
-          type="button">
-          Tandai selesai
-        </button>
+      </details>
 
-      </section>
+      <button
+        class="complete-btn"
+        data-complete="contoh"
+        type="button">
+        Tandai selesai
+      </button>
 
-      <!-- ======================
-           QUIZ
-      ====================== -->
+    </section>
 
-      <section
-        id="quiz"
-        class="section observed learn-section"
-        data-section="quiz">
+    <!-- LATIHAN -->
 
-        <div class="section-head">
+    <section
+      id="latihan"
+      class="section observed learn-section"
+      data-section="latihan">
 
-          <span class="eyebrow">
-            I. TES FORMATIF
-          </span>
+      <div class="section-head">
 
-          <h2>
-            10 pertanyaan • skor otomatis
-          </h2>
+        <span class="eyebrow">
+          H. LATIHAN / TUGAS
+        </span>
+
+        <h2>
+          Screening dulu. Lalu minta evidence.
+        </h2>
+
+      </div>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>Skenario</th>
+              <th>Pertanyaan Anda</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td>
+                Valve diganti identik sesuai
+                design specification
+              </td>
+
+              <td>
+                Apakah MOC diperlukan?
+                Evidence apa yang diminta?
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                Valve diganti dengan rating berbeda
+              </td>
+
+              <td>
+                Apakah masih RIK?
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                Bahan baku diganti dengan
+                chemical grade berbeda
+              </td>
+
+              <td>
+                Apa yang berubah pada
+                technical basis dan hazard?
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                Set point alarm diubah
+              </td>
+
+              <td>
+                Apa dampaknya ke operator response
+                dan safety margin?
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                Prosedur startup diubah
+              </td>
+
+              <td>
+                Siapa yang terdampak
+                dan perlu training?
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                Temporary bypass 7 hari
+              </td>
+
+              <td>
+                Apa expiry dan restoration plan?
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                P&amp;ID diubah karena rerouting pipe
+              </td>
+
+              <td>
+                Bagian mana yang perlu
+                impact assessment?
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td>
+                Perubahan staffing memengaruhi
+                covered process
+              </td>
+
+              <td>
+                Apa human factors dan
+                organizational impact-nya?
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="assignment-grid">
+
+        <article>
+
+          <h3>
+            Latihan 2 • Technical Basis
+          </h3>
 
           <p>
-            Jawab tanpa melihat catatan.
-            Setelah submit, sistem memberi skor
-            dan saran tindak lanjut sesuai modul.
+            Pilih satu skenario dan susun technical
+            basis 250–400 kata: existing, proposed,
+            alasan, design constraints, dan evidence.
           </p>
 
-        </div>
+        </article>
 
-        <form
-          id="quizForm"
-          class="quiz-form">
-        </form>
+        <article>
 
-        <div
-          id="quizResult"
-          class="quiz-result"
-          hidden
-          aria-live="polite">
-        </div>
-
-        <button
-          class="complete-btn"
-          data-complete="quiz"
-          type="button">
-          Tandai selesai
-        </button>
-
-      </section>
-
-      <!-- ======================
-           CHECKLIST
-      ====================== -->
-
-      <section
-        id="checklist"
-        class="section observed learn-section"
-        data-section="checklist">
-
-        <div class="section-head">
-
-          <span class="eyebrow">
-            LAMPIRAN 1 • MOC SCREENING CHECKLIST
-          </span>
-
-          <h2>
-            Checklist interaktif untuk latihan screening.
-          </h2>
+          <h3>
+            Latihan 3 • Impact Assessment
+          </h3>
 
           <p>
-            Pilihan tersimpan di perangkat ini.
-            Gunakan kolom evidence/alasan untuk
-            melatih keputusan yang traceable.
+            Nilai process hazard, containment,
+            fire/explosion, toxic exposure,
+            safeguards, procedures, training,
+            emergency response, mechanical integrity,
+            dan human factors.
           </p>
 
-        </div>
+        </article>
 
-        <div class="checklist-actions">
+      </div>
 
-          <button
-            class="btn secondary"
-            id="printChecklist"
-            type="button">
-            Print checklist
-          </button>
+      <button
+        class="complete-btn"
+        data-complete="latihan"
+        type="button">
+        Tandai selesai
+      </button>
 
-          <button
-            class="btn ghost"
-            id="resetChecklist"
-            type="button">
-            Reset checklist
-          </button>
+    </section>
 
-        </div>
+    <!-- QUIZ -->
 
-        <div class="table-wrap checklist-wrap">
+    <section
+      id="quiz"
+      class="section observed learn-section"
+      data-section="quiz">
 
-          <table class="checklist-table">
+      <div class="section-head">
 
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Pertanyaan screening</th>
-                <th>Keputusan</th>
-                <th>Evidence / alasan</th>
-              </tr>
-            </thead>
+        <span class="eyebrow">
+          I. TES FORMATIF
+        </span>
 
-            <tbody id="checklistBody">
-            </tbody>
-
-          </table>
-
-        </div>
-
-        <div
-          id="checklistSummary"
-          class="callout">
-        </div>
-
-        <button
-          class="complete-btn"
-          data-complete="checklist"
-          type="button">
-          Tandai selesai
-        </button>
-
-      </section>
-
-      <!-- ======================
-           GLOSARIUM
-      ====================== -->
-
-      <section
-        id="glosarium"
-        class="section observed learn-section"
-        data-section="glosarium">
-
-        <div class="section-head">
-
-          <span class="eyebrow">
-            GLOSARIUM
-          </span>
-
-          <h2>
-            Istilah yang harus familiar.
-          </h2>
-
-        </div>
-
-        <input
-          id="glossarySearch"
-          class="search-input"
-          type="search"
-          placeholder="Cari istilah, mis. RIK, closure, safeguard…"
-          aria-label="Cari glosarium"
-        />
-
-        <div
-          id="glossaryGrid"
-          class="glossary-grid">
-        </div>
-
-        <button
-          class="complete-btn"
-          data-complete="glosarium"
-          type="button">
-          Tandai selesai
-        </button>
-
-      </section>
-
-      <!-- ======================
-           REFERENCES
-      ====================== -->
-
-      <section
-        id="referensi"
-        class="section observed">
-
-        <div class="section-head">
-
-          <span class="eyebrow">
-            DAFTAR PUSTAKA
-          </span>
-
-          <h2>
-            Referensi utama modul
-          </h2>
-
-        </div>
-
-        <div class="references">
-
-          <p>
-            Center for Chemical Process Safety. (2007).
-            <em>
-              Guidelines for performing effective
-              pre-startup safety reviews.
-            </em>
-            John Wiley &amp; Sons.
-          </p>
-
-          <p>
-            Occupational Safety and Health Administration.
-            (2020).
-            <em>
-              Process safety management of highly hazardous
-              chemicals (29 CFR 1910.119).
-            </em>
-          </p>
-
-          <p>
-            Occupational Safety and Health Administration.
-            (2013).
-            <em>
-              Appendix C to §1910.119—Compliance guidelines
-              and recommendations for process safety management.
-            </em>
-          </p>
-
-          <p>
-            U.S. Chemical Safety and Hazard Investigation Board.
-            (2001).
-            <em>
-              Management of change safety bulletin.
-            </em>
-          </p>
-
-          <p>
-            U.S. Chemical Safety and Hazard Investigation Board.
-            (2007).
-            <em>
-              BP Texas City refinery final investigation report.
-            </em>
-          </p>
-
-          <p>
-            U.S. Chemical Safety and Hazard Investigation Board.
-            (2016).
-            <em>
-              Williams Geismar olefins plant case study.
-            </em>
-          </p>
-
-        </div>
-
-        <div class="closing-card">
-
-          <span>
-            INTI PEMBELAJARAN
-          </span>
-
-          <blockquote>
-            MOC bukan “izin untuk mengubah”,
-            melainkan cara organisasi memahami
-            perubahan sebelum perubahan tersebut
-            menciptakan kondisi operasi yang tidak dipahami.
-          </blockquote>
-
-        </div>
-
-      </section>
-
-      <footer class="site-footer">
+        <h2>
+          16 pertanyaan • berbasis kasus • skor otomatis
+        </h2>
 
         <p>
-          Modul digital Management of Change (MOC)
-          • Keselamatan Pabrik Kimia
-          • Teknik Kimia UPN “Veteran” Jawa Timur
+          Soal tidak hanya menguji definisi,
+          tetapi juga kemampuan melakukan screening,
+          menilai technical basis, mengenali safety impact,
+          mengevaluasi safeguard, serta menentukan
+          kebutuhan implementasi dan closure.
+        </p>
+
+      </div>
+
+      <form
+        id="quizForm"
+        class="quiz-form">
+      </form>
+
+      <div
+        id="quizResult"
+        class="quiz-result"
+        hidden
+        aria-live="polite">
+      </div>
+
+      <button
+        class="complete-btn"
+        data-complete="quiz"
+        type="button">
+        Tandai selesai
+      </button>
+
+    </section>
+
+    <!-- CHECKLIST -->
+
+    <section
+      id="checklist"
+      class="section observed learn-section"
+      data-section="checklist">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          LAMPIRAN 1 • MOC SCREENING CHECKLIST
+        </span>
+
+        <h2>
+          Checklist interaktif untuk latihan screening.
+        </h2>
+
+        <p>
+          Pilihan tersimpan di perangkat ini.
+          Gunakan kolom evidence/alasan untuk
+          melatih keputusan yang traceable.
+        </p>
+
+      </div>
+
+      <div class="checklist-actions">
+
+        <button
+          class="btn secondary"
+          id="printChecklist"
+          type="button">
+          Print checklist
+        </button>
+
+        <button
+          class="btn ghost"
+          id="resetChecklist"
+          type="button">
+          Reset checklist
+        </button>
+
+      </div>
+
+      <div class="table-wrap checklist-wrap">
+
+        <table class="checklist-table">
+
+          <thead>
+
+            <tr>
+              <th>No.</th>
+              <th>Pertanyaan screening</th>
+              <th>Keputusan</th>
+              <th>Evidence / alasan</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="checklistBody">
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div
+        id="checklistSummary"
+        class="callout">
+      </div>
+
+      <button
+        class="complete-btn"
+        data-complete="checklist"
+        type="button">
+        Tandai selesai
+      </button>
+
+    </section>
+
+    <!-- GLOSSARY -->
+
+    <section
+      id="glosarium"
+      class="section observed learn-section"
+      data-section="glosarium">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          GLOSARIUM
+        </span>
+
+        <h2>
+          Istilah yang harus familiar.
+        </h2>
+
+      </div>
+
+      <input
+        id="glossarySearch"
+        class="search-input"
+        type="search"
+        placeholder="Cari istilah, mis. RIK, closure, safeguard…"
+        aria-label="Cari glosarium"
+      />
+
+      <div
+        id="glossaryGrid"
+        class="glossary-grid">
+      </div>
+
+      <button
+        class="complete-btn"
+        data-complete="glosarium"
+        type="button">
+        Tandai selesai
+      </button>
+
+    </section>
+
+    <!-- REFERENSI -->
+
+    <section
+      id="referensi"
+      class="section observed">
+
+      <div class="section-head">
+
+        <span class="eyebrow">
+          DAFTAR PUSTAKA
+        </span>
+
+        <h2>
+          Referensi utama modul
+        </h2>
+
+      </div>
+
+      <div class="references">
+
+        <p>
+          Center for Chemical Process Safety. (2007).
+          <em>
+            Guidelines for performing effective
+            pre-startup safety reviews.
+          </em>
+          John Wiley &amp; Sons.
         </p>
 
         <p>
-          Konten diadaptasi dari modul pembelajaran
-          karya Ratri Puspita Wardani, S.T., M.Eng.
+          Occupational Safety and Health Administration.
+          (2020).
+          <em>
+            Process safety management of highly hazardous
+            chemicals (29 CFR 1910.119).
+          </em>
         </p>
 
-      </footer>
-
-    </main>
-
-  </div>
-
-  <script>
-    (() => {
-
-      'use strict';
-
-      /* ======================
-         QUIZ DATA
-      ====================== */
-
-      const quiz = [
-
-        {
-          q:'Tujuan utama MOC adalah ...',
-          options:[
-            'mempercepat semua perubahan',
-            'memastikan perubahan dinilai dan dikendalikan sebelum implementasi',
-            'menggantikan PHA',
-            'menghilangkan kebutuhan training'
-          ],
-          answer:1,
-          note:'MOC mengelola perubahan sebelum implementasi.'
-        },
-
-        {
-          q:'Menurut OSHA, replacement in kind ...',
-          options:[
-            'selalu membutuhkan MOC',
-            'dikecualikan dari MOC jika benar-benar memenuhi design specification',
-            'hanya berlaku untuk piping',
-            'hanya berlaku untuk electrical equipment'
-          ],
-          answer:1,
-          note:'RIK dikecualikan bila benar-benar memenuhi design specification.'
-        },
-
-        {
-          q:'Salah satu minimum consideration MOC adalah ...',
-          options:[
-            'warna equipment',
-            'technical basis',
-            'biaya makan pekerja',
-            'jumlah rapat'
-          ],
-          answer:1,
-          note:'Technical basis merupakan minimum consideration.'
-        },
-
-        {
-          q:'Temporary change ...',
-          options:[
-            'bebas dari MOC',
-            'harus memiliki batas dan pengendalian yang jelas',
-            'tidak perlu approval',
-            'tidak perlu restoration'
-          ],
-          answer:1,
-          note:'Temporary change tetap perlu dikendalikan dan dibatasi.'
-        },
-
-        {
-          q:'Jika change memengaruhi PSI, maka ...',
-          options:[
-            'PSI tidak perlu diubah',
-            'PSI diperbarui sesuai kebutuhan',
-            'hanya training yang diubah',
-            'MOC ditutup'
-          ],
-          answer:1,
-          note:'PSI diperbarui bila change memengaruhinya.'
-        },
-
-        {
-          q:'Pekerja yang terdampak change harus ...',
-          options:[
-            'tidak diberi informasi',
-            'diberi informasi dan training sesuai kebutuhan sebelum startup affected process',
-            'hanya diberi email setelah change',
-            'menunggu audit'
-          ],
-          answer:1,
-          note:'Personel terdampak perlu informasi/training sebelum startup affected process.'
-        },
-
-        {
-          q:'MOC yang hanya menilai equipment baru berisiko karena ...',
-          options:[
-            'terlalu banyak dokumen',
-            'interaction hazard pada sistem dapat terlewat',
-            'approval terlalu cepat',
-            'training terlalu banyak'
-          ],
-          answer:1,
-          note:'MOC harus melihat keseluruhan proses yang terdampak.'
-        },
-
-        {
-          q:'Evidence closure yang paling kuat adalah ...',
-          options:[
-            'pernyataan lisan',
-            'implementation/test/documentation/training evidence yang dapat diverifikasi',
-            'foto tanpa konteks',
-            'draft MOC'
-          ],
-          answer:1,
-          note:'Closure perlu evidence yang dapat diverifikasi.'
-        },
+        <p>
+          Occupational Safety and Health Administration.
+          (2013).
+          <em>
+            Appendix C to §1910.119—Compliance guidelines
+            and recommendations for process safety management.
+          </em>
+        </p>
+
+        <p>
+          U.S. Chemical Safety and Hazard Investigation Board.
+          (2001).
+          <em>
+            Management of change safety bulletin.
+          </em>
+        </p>
+
+        <p>
+          U.S. Chemical Safety and Hazard Investigation Board.
+          (2007).
+          <em>
+            BP Texas City refinery final investigation report.
+          </em>
+        </p>
+
+        <p>
+          U.S. Chemical Safety and Hazard Investigation Board.
+          (2016).
+          <em>
+            Williams Geismar olefins plant case study.
+          </em>
+        </p>
+
+      </div>
+
+      <div class="closing-card">
+
+        <span>
+          INTI PEMBELAJARAN
+        </span>
+
+        <blockquote>
+          MOC bukan “izin untuk mengubah”,
+          melainkan cara organisasi memahami
+          perubahan sebelum perubahan tersebut
+          menciptakan kondisi operasi yang tidak dipahami.
+        </blockquote>
+
+      </div>
+
+    </section>
+
+    <footer class="site-footer">
+
+      <p>
+        Modul Digital Management of Change (MOC)
+        • Keselamatan Pabrik Kimia
+        • Teknik Kimia UPN “Veteran” Jawa Timur
+      </p>
+
+      <p>
+        Penyusun: Ratri Puspita Wardani, S.T., M.Eng.
+      </p>
+
+    </footer>
+
+  </main>
+
+</div>
+
+<script>
+(() => {
+
+  'use strict';
+
+  /* ==========================
+     QUIZ 16 SOAL
+  ========================== */
+
+  const quiz = [
+
+    {
+      q:
+        'Sebuah valve diganti dengan valve baru yang memiliki fungsi dan ukuran sama, tetapi material body berbeda karena masalah availability. Keputusan awal yang paling tepat adalah ...',
+
+      options:[
+        'langsung dikategorikan sebagai replacement in kind karena fungsi sama',
+        'tidak perlu review karena ukurannya sama',
+        'melakukan screening MOC karena design specification/material berubah',
+        'cukup meminta approval maintenance'
+      ],
+
+      answer:2,
+
+      note:
+        'Fungsi dan ukuran yang sama belum cukup untuk menyatakan RIK. Perubahan material atau design specification harus discreening.'
+    },
+
+    {
+      q:
+        'Sebuah temporary bypass direncanakan digunakan selama 7 hari. Elemen yang PALING penting agar temporary change tidak berubah menjadi kondisi permanen tanpa kontrol adalah ...',
+
+      options:[
+        'expiry date, monitoring, dan restoration plan yang jelas',
+        'membuat temporary bypass semurah mungkin',
+        'memastikan hanya operator senior yang mengetahui perubahan',
+        'menunggu shutdown berikutnya untuk melakukan review'
+      ],
+
+      answer:0,
+
+      note:
+        'Temporary change harus memiliki duration, monitoring, approval, expiry, dan restoration criteria.'
+    },
+
+    {
+      q:
+        'Produksi dinaikkan 20% tanpa menambah equipment baru. Mengapa kondisi ini tetap dapat memerlukan MOC?',
+
+      options:[
+        'karena setiap kenaikan produksi otomatis dianggap proyek baru',
+        'karena semua perubahan produksi wajib mengganti P&ID',
+        'karena jumlah operator harus selalu ditambah',
+        'karena perubahan operating condition dapat memengaruhi pressure drop, heat removal, relief scenario, dan process stability'
+      ],
+
+      answer:3,
+
+      note:
+        'MOC tidak hanya berlaku pada equipment baru. Operating condition yang berubah dapat mengubah asumsi desain dan keselamatan.'
+    },
+
+    {
+      q:
+        'Set point high-level alarm dinaikkan dari 80% menjadi 90% untuk mengurangi nuisance alarm. Kajian pertama yang paling relevan adalah ...',
+
+      options:[
+        'apakah warna alarm pada HMI masih sama',
+        'apakah response time operator dan margin terhadap overfill berubah',
+        'apakah harga transmitter berubah',
+        'apakah operator menyukai set point baru'
+      ],
+
+      answer:1,
+
+      note:
+        'Perubahan set point dapat mengubah operator response time dan safety margin.'
+    },
+
+    {
+      q:
+        'Evidence yang paling kuat untuk menyatakan suatu penggantian sebagai Replacement in Kind adalah ...',
+
+      options:[
+        'perbandingan design specification existing dan replacement yang menunjukkan material, rating, geometry, function, dan safety characteristics tetap ekuivalen',
+        'pernyataan vendor bahwa produk baru lebih modern',
+        'komponen berasal dari manufacturer yang sama',
+        'fungsi komponen secara umum terlihat sama'
+      ],
+
+      answer:0,
+
+      note:
+        'RIK harus dibuktikan terhadap design specification, bukan sekadar manufacturer atau fungsi umum.'
+    },
+
+    {
+      q:
+        'Emergency change dilakukan untuk mencegah kondisi proses memburuk. Setelah kondisi plant stabil, tindakan yang paling tepat adalah ...',
+
+      options:[
+        'menganggap perubahan selesai karena emergency sudah lewat',
+        'langsung menjadikan perubahan permanen',
+        'melakukan retrospective review serta memastikan documentation, procedure, training, dan closure sesuai kebutuhan',
+        'menghapus seluruh record perubahan agar tidak membingungkan'
+      ],
+
+      answer:2,
+
+      note:
+        'Emergency change tetap membutuhkan retrospective review, documentation, dan closure setelah kondisi stabil.'
+    },
+
+    {
+      q:
+        'Mengapa MOC yang hanya memeriksa equipment yang berubah dianggap berisiko?',
+
+      options:[
+        'karena review menjadi terlalu singkat',
+        'karena interaction hazard pada sistem yang terdampak dapat terlewat',
+        'karena jumlah form menjadi sedikit',
+        'karena maintenance menjadi terlalu mudah'
+      ],
+
+      answer:1,
+
+      note:
+        'MOC harus melihat keseluruhan sistem yang terdampak, bukan hanya komponen baru.'
+    },
+
+    {
+      q:
+        'Sebuah perubahan menyebabkan operating envelope reactor bergeser dan salah satu interlock perlu dimodifikasi. Respons MOC yang paling tepat adalah ...',
+
+      options:[
+        'cukup mengubah operating procedure',
+        'tidak perlu review karena reactor tetap sama',
+        'cukup melakukan training operator',
+        'menentukan kebutuhan targeted PHA/risk review dan mengevaluasi efektivitas safeguard'
+      ],
+
+      answer:3,
+
+      note:
+        'Perubahan operating envelope dan safeguard merupakan pemicu penting untuk risk review.'
+    },
+
+    {
+      q:
+        'Manakah evidence berikut yang PALING menunjukkan bahwa suatu MOC layak di-close?',
+
+      options:[
+        'supervisor menyatakan pekerjaan sudah selesai',
+        'inspection/test record, updated documents, training record, closed actions, dan final approval tersedia',
+        'foto equipment setelah instalasi',
+        'kontraktor menyampaikan pekerjaan selesai'
+      ],
+
+      answer:1,
+
+      note:
+        'Closure harus berbasis evidence yang dapat diverifikasi, bukan hanya pernyataan atau foto tanpa konteks.'
+    },
+
+    {
+      q:
+        'Rerouting suatu line menyebabkan konfigurasi proses berubah. Dokumen mana yang paling jelas perlu ditinjau dan kemungkinan diperbarui?',
+
+      options:[
+        'daftar hadir rapat',
+        'jadwal cuti operator',
+        'anggaran kantin',
+        'P&ID dan process safety information terkait'
+      ],
+
+      answer:3,
+
+      note:
+        'Perubahan konfigurasi proses harus tercermin dalam PSI dan P&ID yang sesuai dengan kondisi aktual.'
+    },
+
+    {
+      q:
+        'Sistem automatic flow control sementara diganti menjadi manual control oleh operator. Dari perspektif human factors, kajian yang paling relevan adalah ...',
+
+      options:[
+        'perubahan workload, task sequence, monitoring demand, dan kemungkinan human error',
+        'warna handwheel valve',
+        'jumlah halaman MOC',
+        'usia control valve'
+      ],
+
+      answer:0,
+
+      note:
+        'Human factors mempertimbangkan workload, task sequence, interface, alarm response, dan kompetensi.'
+    },
+
+    {
+      q:
+        'Authorization dalam MOC paling tepat dipahami sebagai ...',
 
-        {
-          q:'Perubahan set point alarm dapat memengaruhi ...',
-          options:[
-            'hanya warna HMI',
-            'operator response dan safety margin',
-            'hanya procurement',
-            'tidak ada apa-apa'
-          ],
-          answer:1,
-          note:'Set point dapat mengubah response dan safety margin.'
-        },
+      options:[
+        'tanda tangan administratif setelah pekerjaan selesai',
+        'persetujuan dari siapa saja yang tersedia saat itu',
+        'persetujuan oleh pihak yang kompeten dan berwenang serta memahami technical basis dan safety impact',
+        'persetujuan procurement karena equipment akan dibeli'
+      ],
 
-        {
-          q:'MOC efektif ditandai oleh ...',
-          options:[
-            'jumlah formulir',
-            'kualitas review, action completion, communication, implementation, dan closure',
-            'jumlah approval',
-            'kecepatan perubahan'
-          ],
-          answer:1,
-          note:'Efektivitas lebih penting daripada jumlah formulir.'
-        }
+      answer:2,
 
-      ];
+      note:
+        'Approval bukan sekadar tanda tangan. Approver harus memahami technical basis dan safety impact.'
+    },
 
-      /* ======================
-         CHECKLIST
-      ====================== */
+    {
+      q:
+        'Sebuah temporary modification sudah berjalan 3 bulan padahal awalnya disetujui hanya 14 hari. Risiko MOC utama dari kondisi ini adalah ...',
 
-      const checklistItems = [
+      options:[
+        'jumlah form menjadi terlalu banyak',
+        'maintenance tidak memiliki cukup spare part',
+        'operator menjadi terlalu familiar dengan sistem',
+        'temporary change telah berpotensi menjadi kondisi permanen tanpa review dan restoration yang sesuai'
+      ],
 
-        'Apakah ada perubahan yang diusulkan?',
+      answer:3,
 
-        'Apakah perubahan memengaruhi covered process?',
+      note:
+        'Temporary change tanpa kontrol expiry dapat berubah menjadi kondisi permanen tanpa review.'
+    },
 
-        'Apakah benar-benar replacement in kind?',
+    {
+      q:
+        'Part number valve existing sudah obsolete. Vendor menawarkan model baru dan menyatakan “equivalent”. Apa tindakan screening yang paling tepat?',
 
-        'Apakah process chemical berubah?',
+      options:[
+        'langsung diterima sebagai RIK karena vendor menyatakan equivalent',
+        'membandingkan datasheet dan seluruh design specification sebelum memutuskan RIK atau MOC',
+        'menolak otomatis karena part number berbeda',
+        'menganggapnya emergency change'
+      ],
 
-        'Apakah technology/process condition berubah?',
+      answer:1,
 
-        'Apakah equipment/material/specification berubah?',
+      note:
+        'Istilah equivalent harus diverifikasi terhadap design specification. Part number berbeda sendiri belum menentukan status.'
+    },
 
-        'Apakah procedure/practice berubah?',
+    {
+      q:
+        'Project menambahkan isolation valve baru untuk meningkatkan maintainability. Namun, pada posisi tertentu valve tersebut dapat mengisolasi equipment dari relief protection. Tindakan paling tepat adalah ...',
 
-        'Apakah facility/configuration berubah?',
+      options:[
+        'melanjutkan instalasi karena valve meningkatkan maintainability',
+        'cukup memberi label pada valve',
+        'melakukan MOC dan targeted risk review terhadap isolation scenario serta efektivitas relief protection',
+        'menunggu commissioning untuk melihat apakah masalah benar-benar terjadi'
+      ],
 
-        'Apakah safety/health impact perlu dianalisis?',
+      answer:2,
 
-        'Apakah PHA/risk review diperlukan?',
+      note:
+        'Perubahan yang dapat memengaruhi safeguard atau relief protection harus direview sebelum implementasi.'
+    },
 
-        'Apakah PSI berubah?',
+    {
+      q:
+        'Manakah indikator TERBAIK bahwa sistem MOC organisasi berjalan efektif?',
 
-        'Apakah operating procedure berubah?',
+      options:[
+        'perubahan dinilai sebelum implementasi, actions diselesaikan, personel terdampak dikomunikasikan/dilatih, dokumen diperbarui, dan closure diverifikasi',
+        'jumlah MOC yang dibuka setiap tahun sangat banyak',
+        'semua MOC mendapat approval dalam waktu kurang dari satu hari',
+        'setiap perubahan menghasilkan formulir yang panjang'
+      ],
 
-        'Apakah training/communication diperlukan?',
+      answer:0,
 
-        'Apakah temporary duration/restoration diperlukan?',
+      note:
+        'Efektivitas MOC ditentukan oleh kualitas review, implementasi, communication, documentation, action completion, dan closure.'
+    }
 
-        'Apakah authorization sudah ditentukan?'
+  ];
 
-      ];
+  /* ==========================
+     CHECKLIST
+  ========================== */
 
-      /* ======================
-         GLOSSARY
-      ====================== */
+  const checklistItems = [
 
-      const glossary = [
+    'Apakah ada perubahan yang diusulkan?',
 
-        [
-          'Change',
-          'Perubahan pada process chemicals, technology, equipment, procedures, atau facilities yang relevan terhadap covered process.'
-        ],
+    'Apakah perubahan memengaruhi covered process?',
 
-        [
-          'Management of Change (MOC)',
-          'Proses sistematis untuk menilai dan mengendalikan perubahan sebelum implementasi.'
-        ],
+    'Apakah benar-benar replacement in kind?',
 
-        [
-          'Replacement in Kind',
-          'Penggantian yang memenuhi design specification.'
-        ],
+    'Apakah process chemical berubah?',
 
-        [
-          'Technical Basis',
-          'Dasar teknis yang menjelaskan kondisi existing, proposed change, alasan, dan batas desain.'
-        ],
+    'Apakah technology/process condition berubah?',
 
-        [
-          'Safety Impact',
-          'Dampak perubahan terhadap keselamatan dan kesehatan.'
-        ],
+    'Apakah equipment/material/specification berubah?',
 
-        [
-          'PSI',
-          'Process Safety Information.'
-        ],
+    'Apakah procedure/practice berubah?',
 
-        [
-          'PHA',
-          'Process Hazard Analysis.'
-        ],
+    'Apakah facility/configuration berubah?',
 
-        [
-          'PSSR',
-          'Pre-Startup Safety Review.'
-        ],
+    'Apakah safety/health impact perlu dianalisis?',
 
-        [
-          'Temporary Change',
-          'Perubahan untuk periode/tujuan terbatas dan memiliki rencana restoration.'
-        ],
+    'Apakah PHA/risk review diperlukan?',
 
-        [
-          'Emergency Change',
-          'Perubahan untuk merespons kondisi darurat yang tetap memerlukan pengendalian serta review sesuai prosedur.'
-        ],
+    'Apakah PSI berubah?',
 
-        [
-          'Closure',
-          'Tahap ketika implementasi, tindakan, dokumentasi, training, dan verifikasi yang diperlukan telah selesai.'
-        ],
+    'Apakah operating procedure berubah?',
 
-        [
-          'Traceability',
-          'Kemampuan menelusuri hubungan change, review, action, evidence, dan closure.'
-        ],
+    'Apakah training/communication diperlukan?',
 
-        [
-          'Safeguard',
-          'Lapisan perlindungan yang mencegah atau mengurangi konsekuensi hazard.'
-        ],
+    'Apakah temporary duration/restoration diperlukan?',
 
-        [
-          'Human Factors',
-          'Faktor terkait interaksi manusia dengan sistem, prosedur, teknologi, organisasi, dan lingkungan kerja.'
-        ]
+    'Apakah authorization sudah ditentukan?'
 
-      ];
+  ];
 
-      /* ======================
-         LOCAL STORAGE
-      ====================== */
+  /* ==========================
+     GLOSSARY
+  ========================== */
 
-      const storage = {
+  const glossary = [
 
-        get(key, fallback) {
+    [
+      'Change',
+      'Perubahan pada process chemicals, technology, equipment, procedures, atau facilities yang relevan terhadap covered process.'
+    ],
 
-          try {
+    [
+      'Management of Change (MOC)',
+      'Proses sistematis untuk menilai dan mengendalikan perubahan sebelum implementasi.'
+    ],
 
-            return JSON.parse(
-              localStorage.getItem(key)
-            ) ?? fallback;
+    [
+      'Replacement in Kind',
+      'Penggantian yang memenuhi design specification.'
+    ],
 
-          } catch {
+    [
+      'Technical Basis',
+      'Dasar teknis yang menjelaskan kondisi existing, proposed change, alasan, dan batas desain.'
+    ],
 
-            return fallback;
+    [
+      'Safety Impact',
+      'Dampak perubahan terhadap keselamatan dan kesehatan.'
+    ],
 
-          }
+    [
+      'PSI',
+      'Process Safety Information.'
+    ],
 
-        },
+    [
+      'PHA',
+      'Process Hazard Analysis.'
+    ],
 
-        set(key, value) {
+    [
+      'PSSR',
+      'Pre-Startup Safety Review.'
+    ],
 
-          try {
+    [
+      'Temporary Change',
+      'Perubahan untuk periode atau tujuan terbatas dan memiliki rencana restoration.'
+    ],
 
-            localStorage.setItem(
-              key,
-              JSON.stringify(value)
-            );
+    [
+      'Emergency Change',
+      'Perubahan untuk merespons kondisi darurat yang tetap memerlukan pengendalian serta review sesuai prosedur.'
+    ],
 
-          } catch {}
+    [
+      'Closure',
+      'Tahap ketika implementasi, tindakan, dokumentasi, training, dan verifikasi yang diperlukan telah selesai.'
+    ],
 
-        }
+    [
+      'Traceability',
+      'Kemampuan menelusuri hubungan change, review, action, evidence, dan closure.'
+    ],
 
-      };
+    [
+      'Safeguard',
+      'Lapisan perlindungan yang mencegah atau mengurangi konsekuensi hazard.'
+    ],
 
-      /* ======================
-         MOBILE NAVIGATION
-      ====================== */
+    [
+      'Human Factors',
+      'Faktor terkait interaksi manusia dengan sistem, prosedur, teknologi, organisasi, dan lingkungan kerja.'
+    ]
 
-      const sidebar =
-        document.getElementById('sidebar');
+  ];
 
-      const menuBtn =
-        document.getElementById('menuBtn');
+  /* ==========================
+     LOCAL STORAGE
+  ========================== */
 
-      menuBtn?.addEventListener(
-        'click',
-        () => {
+  const storage = {
 
-          const open =
-            sidebar.classList.toggle('open');
+    get(key,fallback) {
 
-          menuBtn.setAttribute(
-            'aria-expanded',
-            String(open)
-          );
+      try {
 
-        }
-      );
+        return JSON.parse(
+          localStorage.getItem(key)
+        ) ?? fallback;
 
-      document
-        .querySelectorAll('.nav-list a')
-        .forEach(
-          a => a.addEventListener(
-            'click',
-            () => {
+      } catch {
 
-              sidebar.classList.remove('open');
-
-              menuBtn?.setAttribute(
-                'aria-expanded',
-                'false'
-              );
-
-            }
-          )
-        );
-
-      /* ======================
-         DARK MODE
-      ====================== */
-
-      const themeBtn =
-        document.getElementById('themeBtn');
-
-      const savedTheme =
-        storage.get(
-          'moc-theme',
-          'light'
-        );
-
-      if(savedTheme === 'dark') {
-
-        document.body.classList.add('dark');
+        return fallback;
 
       }
 
-      themeBtn?.addEventListener(
+    },
+
+    set(key,value) {
+
+      try {
+
+        localStorage.setItem(
+          key,
+          JSON.stringify(value)
+        );
+
+      } catch {}
+
+    }
+
+  };
+
+  /* ==========================
+     MOBILE NAV
+  ========================== */
+
+  const sidebar =
+    document.getElementById('sidebar');
+
+  const menuBtn =
+    document.getElementById('menuBtn');
+
+  menuBtn?.addEventListener(
+    'click',
+    () => {
+
+      const open =
+        sidebar.classList.toggle('open');
+
+      menuBtn.setAttribute(
+        'aria-expanded',
+        String(open)
+      );
+
+    }
+  );
+
+  document
+    .querySelectorAll('.nav-list a')
+    .forEach(
+
+      a => a.addEventListener(
         'click',
         () => {
 
-          document.body.classList.toggle('dark');
+          sidebar.classList.remove('open');
 
-          storage.set(
-            'moc-theme',
-            document.body.classList.contains('dark')
-              ? 'dark'
-              : 'light'
+          menuBtn?.setAttribute(
+            'aria-expanded',
+            'false'
           );
 
         }
+      )
+
+    );
+
+  /* ==========================
+     DARK MODE
+  ========================== */
+
+  const themeBtn =
+    document.getElementById('themeBtn');
+
+  const savedTheme =
+    storage.get(
+      'moc-theme',
+      'light'
+    );
+
+  if(savedTheme === 'dark') {
+
+    document.body.classList.add('dark');
+
+  }
+
+  themeBtn?.addEventListener(
+    'click',
+    () => {
+
+      document.body.classList.toggle('dark');
+
+      storage.set(
+        'moc-theme',
+
+        document.body.classList.contains('dark')
+          ? 'dark'
+          : 'light'
       );
 
-      /* ======================
-         SCROLL SPY
-      ====================== */
+    }
+  );
 
-      const navLinks = [
-        ...document.querySelectorAll('.nav-list a')
-      ];
+  /* ==========================
+     SCROLL SPY
+  ========================== */
 
-      const sectionMap =
-        new Map(
-          navLinks.map(
-            a => [
-              a.getAttribute('href').slice(1),
-              a
-            ]
+  const navLinks = [
+    ...document.querySelectorAll('.nav-list a')
+  ];
+
+  const sectionMap =
+    new Map(
+
+      navLinks.map(
+
+        a => [
+          a.getAttribute('href').slice(1),
+          a
+        ]
+
+      )
+
+    );
+
+  const observer =
+    new IntersectionObserver(
+
+      entries => {
+
+        const visible =
+          entries
+            .filter(e => e.isIntersecting)
+            .sort(
+              (a,b) =>
+                b.intersectionRatio -
+                a.intersectionRatio
+            )[0];
+
+        if(!visible) {
+          return;
+        }
+
+        navLinks.forEach(
+          a => a.classList.remove('active')
+        );
+
+        sectionMap
+          .get(visible.target.id)
+          ?.classList.add('active');
+
+      },
+
+      {
+        rootMargin:'-20% 0px -65% 0px',
+        threshold:[0,.1,.3]
+      }
+
+    );
+
+  document
+    .querySelectorAll('.observed')
+    .forEach(
+      s => observer.observe(s)
+    );
+
+  /* ==========================
+     LEARNING PROGRESS
+  ========================== */
+
+  const completeButtons = [
+    ...document.querySelectorAll('[data-complete]')
+  ];
+
+  let completed =
+    storage.get(
+      'moc-completed',
+      []
+    );
+
+  const renderProgress = () => {
+
+    completeButtons.forEach(
+
+      btn => {
+
+        const done =
+          completed.includes(
+            btn.dataset.complete
+          );
+
+        btn.classList.toggle(
+          'done',
+          done
+        );
+
+        btn.textContent =
+          done
+            ? '✓ Selesai'
+            : 'Tandai selesai';
+
+      }
+
+    );
+
+    const pct =
+      completeButtons.length
+        ? Math.round(
+            completed.length /
+            completeButtons.length *
+            100
           )
-        );
+        : 0;
 
-      const observer =
-        new IntersectionObserver(
-          entries => {
+    document
+      .getElementById('progressLabel')
+      .textContent = `${pct}%`;
 
-            const visible =
-              entries
-                .filter(e => e.isIntersecting)
-                .sort(
-                  (a,b) =>
-                    b.intersectionRatio -
-                    a.intersectionRatio
-                )[0];
+    document
+      .getElementById('progressBar')
+      .style.width = `${pct}%`;
 
-            if(!visible) {
-              return;
-            }
+  };
 
-            navLinks.forEach(
-              a => a.classList.remove('active')
-            );
+  completeButtons.forEach(
 
-            sectionMap
-              .get(visible.target.id)
-              ?.classList.add('active');
-
-          },
-          {
-            rootMargin:'-20% 0px -65% 0px',
-            threshold:[0,.1,.3]
-          }
-        );
-
-      document
-        .querySelectorAll('.observed')
-        .forEach(
-          s => observer.observe(s)
-        );
-
-      /* ======================
-         LEARNING PROGRESS
-      ====================== */
-
-      const completeButtons = [
-        ...document.querySelectorAll('[data-complete]')
-      ];
-
-      let completed =
-        storage.get(
-          'moc-completed',
-          []
-        );
-
-      const renderProgress = () => {
-
-        completeButtons.forEach(
-          btn => {
-
-            const done =
-              completed.includes(
-                btn.dataset.complete
-              );
-
-            btn.classList.toggle(
-              'done',
-              done
-            );
-
-            btn.textContent =
-              done
-                ? '✓ Selesai'
-                : 'Tandai selesai';
-
-          }
-        );
-
-        const pct =
-          completeButtons.length
-            ? Math.round(
-                completed.length /
-                completeButtons.length *
-                100
-              )
-            : 0;
-
-        document
-          .getElementById('progressLabel')
-          .textContent = `${pct}%`;
-
-        document
-          .getElementById('progressBar')
-          .style.width = `${pct}%`;
-
-      };
-
-      completeButtons.forEach(
-
-        btn =>
-          btn.addEventListener(
-            'click',
-            () => {
-
-              const id =
-                btn.dataset.complete;
-
-              completed =
-                completed.includes(id)
-                  ? completed.filter(
-                      x => x !== id
-                    )
-                  : [
-                      ...completed,
-                      id
-                    ];
-
-              storage.set(
-                'moc-completed',
-                completed
-              );
-
-              renderProgress();
-
-            }
-          )
-
-      );
-
-      document
-        .getElementById('resetProgress')
-        ?.addEventListener(
-          'click',
-          () => {
-
-            completed = [];
-
-            storage.set(
-              'moc-completed',
-              completed
-            );
-
-            renderProgress();
-
-          }
-        );
-
-      renderProgress();
-
-      /* ======================
-         QUIZ RENDERING
-      ====================== */
-
-      const quizForm =
-        document.getElementById('quizForm');
-
-      quiz.forEach(
-        (item,i) => {
-
-          const field =
-            document.createElement('fieldset');
-
-          field.className =
-            'question';
-
-          const legend =
-            document.createElement('h3');
-
-          legend.textContent =
-            `${i+1}. ${item.q}`;
-
-          field.appendChild(
-            legend
-          );
-
-          item.options.forEach(
-            (opt,j) => {
-
-              const label =
-                document.createElement('label');
-
-              label.className =
-                'option';
-
-              const input =
-                document.createElement('input');
-
-              input.type =
-                'radio';
-
-              input.name =
-                `q${i}`;
-
-              input.value =
-                String(j);
-
-              const span =
-                document.createElement('span');
-
-              span.textContent =
-                `${String.fromCharCode(65+j)}. ${opt}`;
-
-              label.append(
-                input,
-                span
-              );
-
-              field.appendChild(
-                label
-              );
-
-            }
-          );
-
-          quizForm.appendChild(
-            field
-          );
-
-        }
-      );
-
-      const submit =
-        document.createElement('button');
-
-      submit.type =
-        'submit';
-
-      submit.className =
-        'btn primary quiz-submit';
-
-      submit.textContent =
-        'Periksa jawaban';
-
-      quizForm.appendChild(
-        submit
-      );
-
-      quizForm.addEventListener(
-        'submit',
-        e => {
-
-          e.preventDefault();
-
-          let score = 0;
-
-          let unanswered = 0;
-
-          const feedback = [];
-
-          quiz.forEach(
-            (item,i) => {
-
-              const selected =
-                quizForm.querySelector(
-                  `input[name="q${i}"]:checked`
-                );
-
-              if(!selected) {
-
-                unanswered++;
-
-                feedback.push(
-                  `${i+1}. Belum dijawab.`
-                );
-
-                return;
-
-              }
-
-              if(
-                Number(selected.value)
-                === item.answer
-              ) {
-
-                score++;
-
-              } else {
-
-                feedback.push(
-                  `${i+1}. ${item.note}`
-                );
-
-              }
-
-            }
-          );
-
-          const pct =
-            Math.round(
-              score /
-              quiz.length *
-              100
-            );
-
-          let status;
-          let cls;
-          let action;
-
-          if(pct >= 80) {
-
-            status =
-              'Tuntas';
-
-            cls =
-              'pass';
-
-            action =
-              'Lanjut ke latihan case study.';
-
-          } else if(pct >= 60) {
-
-            status =
-              'Perlu penguatan';
-
-            cls =
-              'warn';
-
-            action =
-              'Ulangi materi RIK, screening, technical basis, impact assessment, safeguards, dan closure.';
-
-          } else {
-
-            status =
-              'Belum tuntas';
-
-            cls =
-              'fail';
-
-            action =
-              'Pelajari kembali konsep MOC, RIK, impact assessment, dan closure.';
-
-          }
-
-          const result =
-            document.getElementById(
-              'quizResult'
-            );
-
-          result.hidden =
-            false;
-
-          result.className =
-            `quiz-result ${cls}`;
-
-          result.innerHTML = `
-            <h3>
-              Skor ${score}/${quiz.length}
-              (${pct}%) — ${status}
-            </h3>
-
-            <p>
-              ${action}
-            </p>
-
-            ${
-              unanswered
-                ? `
-                  <p>
-                    <strong>
-                      ${unanswered}
-                    </strong>
-                    soal belum dijawab.
-                  </p>
-                `
-                : ''
-            }
-
-            ${
-              feedback.length
-                ? `
-                  <details>
-                    <summary>
-                      Lihat pembahasan yang perlu diperhatikan
-                    </summary>
-
-                    <ul>
-                      ${
-                        feedback
-                          .map(
-                            x => `<li>${x}</li>`
-                          )
-                          .join('')
-                      }
-                    </ul>
-
-                  </details>
-                `
-                : `
-                  <p>
-                    Semua jawaban benar.
-                  </p>
-                `
-            }
-          `;
-
-          result.scrollIntoView(
-            {
-              behavior:'smooth',
-              block:'center'
-            }
-          );
-
-        }
-      );
-
-      /* ======================
-         CHECKLIST
-      ====================== */
-
-      const checklistBody =
-        document.getElementById(
-          'checklistBody'
-        );
-
-      let checklistState =
-        storage.get(
-          'moc-checklist',
-          {}
-        );
-
-      const updateChecklistSummary =
+    btn =>
+      btn.addEventListener(
+        'click',
         () => {
 
-          const vals =
-            checklistItems.map(
-              (_,i) =>
-                checklistState[i]?.decision || ''
-            );
+          const id =
+            btn.dataset.complete;
 
-          const yes =
-            vals.filter(
-              v => v === 'Yes'
-            ).length;
+          completed =
+            completed.includes(id)
+              ? completed.filter(
+                  x => x !== id
+                )
+              : [
+                  ...completed,
+                  id
+                ];
 
-          const no =
-            vals.filter(
-              v => v === 'No'
-            ).length;
-
-          const na =
-            vals.filter(
-              v => v === 'N/A'
-            ).length;
-
-          document
-            .getElementById(
-              'checklistSummary'
-            )
-            .innerHTML = `
-              <strong>
-                Ringkasan checklist:
-              </strong>
-
-              Yes ${yes}
-              • No ${no}
-              • N/A ${na}
-              • Belum diisi
-              ${
-                checklistItems.length -
-                yes -
-                no -
-                na
-              }.
-
-              <span class="muted">
-                Checklist membantu screening;
-                keputusan tetap harus dijelaskan
-                dengan evidence/alasan.
-              </span>
-            `;
-
-        };
-
-      checklistItems.forEach(
-        (item,i) => {
-
-          const tr =
-            document.createElement('tr');
-
-          const tdNo =
-            document.createElement('td');
-
-          tdNo.textContent =
-            String(i+1);
-
-          const tdQ =
-            document.createElement('td');
-
-          tdQ.textContent =
-            item;
-
-          const tdD =
-            document.createElement('td');
-
-          const select =
-            document.createElement('select');
-
-          select.setAttribute(
-            'aria-label',
-            `Keputusan nomor ${i+1}`
+          storage.set(
+            'moc-completed',
+            completed
           );
 
-          [
-            '',
-            'Yes',
-            'No',
-            'N/A'
-          ].forEach(
-            v => {
+          renderProgress();
 
-              const o =
-                document.createElement('option');
+        }
+      )
 
-              o.value =
-                v;
+  );
 
-              o.textContent =
-                v || 'Pilih…';
+  document
+    .getElementById('resetProgress')
+    ?.addEventListener(
+      'click',
+      () => {
 
-              select.appendChild(o);
+        completed = [];
 
-            }
-          );
+        storage.set(
+          'moc-completed',
+          completed
+        );
 
-          select.value =
-            checklistState[i]?.decision || '';
+        renderProgress();
 
-          const tdE =
-            document.createElement('td');
+      }
+    );
+
+  renderProgress();
+
+  /* ==========================
+     RENDER QUIZ
+  ========================== */
+
+  const quizForm =
+    document.getElementById('quizForm');
+
+  quiz.forEach(
+
+    (item,i) => {
+
+      const field =
+        document.createElement('fieldset');
+
+      field.className =
+        'question';
+
+      const legend =
+        document.createElement('h3');
+
+      legend.textContent =
+        `${i+1}. ${item.q}`;
+
+      field.appendChild(
+        legend
+      );
+
+      item.options.forEach(
+
+        (opt,j) => {
+
+          const label =
+            document.createElement('label');
+
+          label.className =
+            'option';
 
           const input =
             document.createElement('input');
 
           input.type =
-            'text';
+            'radio';
 
-          input.placeholder =
-            'Evidence / alasan';
+          input.name =
+            `q${i}`;
 
           input.value =
-            checklistState[i]?.evidence || '';
+            String(j);
 
-          select.addEventListener(
-            'change',
-            () => {
+          const span =
+            document.createElement('span');
 
-              checklistState[i] = {
-                decision:select.value,
-                evidence:input.value
-              };
+          span.textContent =
+            `${String.fromCharCode(65+j)}. ${opt}`;
 
-              storage.set(
-                'moc-checklist',
-                checklistState
-              );
-
-              updateChecklistSummary();
-
-            }
+          label.append(
+            input,
+            span
           );
 
-          input.addEventListener(
-            'input',
-            () => {
-
-              checklistState[i] = {
-                decision:select.value,
-                evidence:input.value
-              };
-
-              storage.set(
-                'moc-checklist',
-                checklistState
-              );
-
-            }
-          );
-
-          tdD.appendChild(
-            select
-          );
-
-          tdE.appendChild(
-            input
-          );
-
-          tr.append(
-            tdNo,
-            tdQ,
-            tdD,
-            tdE
-          );
-
-          checklistBody.appendChild(
-            tr
+          field.appendChild(
+            label
           );
 
         }
+
       );
 
-      updateChecklistSummary();
+      quizForm.appendChild(
+        field
+      );
 
-      document
-        .getElementById(
-          'resetChecklist'
-        )
-        ?.addEventListener(
-          'click',
-          () => {
+    }
 
-            checklistState = {};
+  );
 
-            storage.set(
-              'moc-checklist',
-              {}
+  const submit =
+    document.createElement('button');
+
+  submit.type =
+    'submit';
+
+  submit.className =
+    'btn primary quiz-submit';
+
+  submit.textContent =
+    'Periksa jawaban';
+
+  quizForm.appendChild(
+    submit
+  );
+
+  /* ==========================
+     SCORE QUIZ
+  ========================== */
+
+  quizForm.addEventListener(
+
+    'submit',
+
+    e => {
+
+      e.preventDefault();
+
+      let score = 0;
+
+      let unanswered = 0;
+
+      const feedback = [];
+
+      quiz.forEach(
+
+        (item,i) => {
+
+          const selected =
+            quizForm.querySelector(
+              `input[name="q${i}"]:checked`
             );
 
-            checklistBody
-              .querySelectorAll('select')
-              .forEach(
-                x => x.value = ''
-              );
+          if(!selected) {
 
-            checklistBody
-              .querySelectorAll('input')
-              .forEach(
-                x => x.value = ''
-              );
+            unanswered++;
 
-            updateChecklistSummary();
+            feedback.push(
+              `${i+1}. Belum dijawab.`
+            );
+
+            return;
 
           }
-        );
 
-      document
-        .getElementById(
-          'printChecklist'
-        )
-        ?.addEventListener(
-          'click',
-          () => window.print()
-        );
+          if(
+            Number(selected.value)
+            === item.answer
+          ) {
 
-      /* ======================
-         GLOSSARY
-      ====================== */
+            score++;
 
-      const glossaryGrid =
-        document.getElementById(
-          'glossaryGrid'
-        );
+          } else {
 
-      const renderGlossary =
-        (query='') => {
-
-          const q =
-            query
-              .trim()
-              .toLowerCase();
-
-          const rows =
-            glossary.filter(
-              ([term,def]) =>
-                !q ||
-                term
-                  .toLowerCase()
-                  .includes(q) ||
-                def
-                  .toLowerCase()
-                  .includes(q)
+            feedback.push(
+              `${i+1}. ${item.note}`
             );
 
-          glossaryGrid.innerHTML =
-            rows.length
-              ? rows
-                  .map(
-                    ([term,def]) => `
-                      <article class="glossary-item">
+          }
 
-                        <strong>
-                          ${term}
-                        </strong>
+        }
 
-                        <span>
-                          ${def}
-                        </span>
+      );
 
-                      </article>
-                    `
-                  )
-                  .join('')
-              : `
-                  <p>
-                    Tidak ada istilah yang cocok.
-                  </p>
-                `;
+      const pct =
+        Math.round(
+          score /
+          quiz.length *
+          100
+        );
 
-        };
+      let status;
+      let cls;
+      let action;
 
-      renderGlossary();
+      if(pct >= 80) {
+
+        status =
+          'Tuntas';
+
+        cls =
+          'pass';
+
+        action =
+          'Lanjut ke latihan case study dan penerapan MOC.';
+
+      } else if(pct >= 60) {
+
+        status =
+          'Perlu penguatan';
+
+        cls =
+          'warn';
+
+        action =
+          'Ulangi materi RIK, screening, technical basis, impact assessment, safeguards, dan closure.';
+
+      } else {
+
+        status =
+          'Belum tuntas';
+
+        cls =
+          'fail';
+
+        action =
+          'Pelajari kembali konsep MOC, Replacement in Kind, impact assessment, temporary change, dan closure.';
+
+      }
+
+      const result =
+        document.getElementById(
+          'quizResult'
+        );
+
+      result.hidden =
+        false;
+
+      result.className =
+        `quiz-result ${cls}`;
+
+      result.innerHTML = `
+
+        <h3>
+          Skor ${score}/${quiz.length}
+          (${pct}%) — ${status}
+        </h3>
+
+        <p>
+          ${action}
+        </p>
+
+        ${
+          unanswered
+            ? `
+              <p>
+                <strong>${unanswered}</strong>
+                soal belum dijawab.
+              </p>
+            `
+            : ''
+        }
+
+        ${
+          feedback.length
+            ? `
+              <details>
+
+                <summary>
+                  Lihat pembahasan jawaban yang perlu diperhatikan
+                </summary>
+
+                <ul>
+                  ${
+                    feedback
+                      .map(
+                        x => `<li>${x}</li>`
+                      )
+                      .join('')
+                  }
+                </ul>
+
+              </details>
+            `
+            : `
+              <p>
+                Semua jawaban benar. Excellent!
+              </p>
+            `
+        }
+
+      `;
+
+      result.scrollIntoView(
+        {
+          behavior:'smooth',
+          block:'center'
+        }
+      );
+
+    }
+
+  );
+
+  /* ==========================
+     CHECKLIST
+  ========================== */
+
+  const checklistBody =
+    document.getElementById(
+      'checklistBody'
+    );
+
+  let checklistState =
+    storage.get(
+      'moc-checklist',
+      {}
+    );
+
+  const updateChecklistSummary =
+    () => {
+
+      const vals =
+        checklistItems.map(
+          (_,i) =>
+            checklistState[i]?.decision || ''
+        );
+
+      const yes =
+        vals.filter(
+          v => v === 'Yes'
+        ).length;
+
+      const no =
+        vals.filter(
+          v => v === 'No'
+        ).length;
+
+      const na =
+        vals.filter(
+          v => v === 'N/A'
+        ).length;
 
       document
         .getElementById(
-          'glossarySearch'
+          'checklistSummary'
         )
-        ?.addEventListener(
-          'input',
-          e =>
-            renderGlossary(
-              e.target.value
-            )
+        .innerHTML = `
+
+          <strong>
+            Ringkasan checklist:
+          </strong>
+
+          Yes ${yes}
+          • No ${no}
+          • N/A ${na}
+          • Belum diisi
+          ${
+            checklistItems.length -
+            yes -
+            no -
+            na
+          }.
+
+          Checklist membantu screening;
+          keputusan tetap harus dijelaskan
+          dengan evidence dan alasan.
+
+        `;
+
+    };
+
+  checklistItems.forEach(
+
+    (item,i) => {
+
+      const tr =
+        document.createElement('tr');
+
+      const tdNo =
+        document.createElement('td');
+
+      tdNo.textContent =
+        String(i+1);
+
+      const tdQ =
+        document.createElement('td');
+
+      tdQ.textContent =
+        item;
+
+      const tdD =
+        document.createElement('td');
+
+      const select =
+        document.createElement('select');
+
+      select.setAttribute(
+        'aria-label',
+        `Keputusan nomor ${i+1}`
+      );
+
+      [
+        '',
+        'Yes',
+        'No',
+        'N/A'
+      ].forEach(
+
+        v => {
+
+          const o =
+            document.createElement('option');
+
+          o.value =
+            v;
+
+          o.textContent =
+            v || 'Pilih…';
+
+          select.appendChild(o);
+
+        }
+
+      );
+
+      select.value =
+        checklistState[i]?.decision || '';
+
+      const tdE =
+        document.createElement('td');
+
+      const input =
+        document.createElement('input');
+
+      input.type =
+        'text';
+
+      input.placeholder =
+        'Evidence / alasan';
+
+      input.value =
+        checklistState[i]?.evidence || '';
+
+      select.addEventListener(
+
+        'change',
+
+        () => {
+
+          checklistState[i] = {
+            decision:select.value,
+            evidence:input.value
+          };
+
+          storage.set(
+            'moc-checklist',
+            checklistState
+          );
+
+          updateChecklistSummary();
+
+        }
+
+      );
+
+      input.addEventListener(
+
+        'input',
+
+        () => {
+
+          checklistState[i] = {
+            decision:select.value,
+            evidence:input.value
+          };
+
+          storage.set(
+            'moc-checklist',
+            checklistState
+          );
+
+        }
+
+      );
+
+      tdD.appendChild(
+        select
+      );
+
+      tdE.appendChild(
+        input
+      );
+
+      tr.append(
+        tdNo,
+        tdQ,
+        tdD,
+        tdE
+      );
+
+      checklistBody.appendChild(
+        tr
+      );
+
+    }
+
+  );
+
+  updateChecklistSummary();
+
+  document
+    .getElementById(
+      'resetChecklist'
+    )
+    ?.addEventListener(
+
+      'click',
+
+      () => {
+
+        checklistState = {};
+
+        storage.set(
+          'moc-checklist',
+          {}
         );
 
-    })();
-  </script>
+        checklistBody
+          .querySelectorAll('select')
+          .forEach(
+            x => x.value = ''
+          );
+
+        checklistBody
+          .querySelectorAll('input')
+          .forEach(
+            x => x.value = ''
+          );
+
+        updateChecklistSummary();
+
+      }
+
+    );
+
+  document
+    .getElementById(
+      'printChecklist'
+    )
+    ?.addEventListener(
+      'click',
+      () => window.print()
+    );
+
+  /* ==========================
+     GLOSSARY
+  ========================== */
+
+  const glossaryGrid =
+    document.getElementById(
+      'glossaryGrid'
+    );
+
+  const renderGlossary =
+    (query='') => {
+
+      const q =
+        query
+          .trim()
+          .toLowerCase();
+
+      const rows =
+        glossary.filter(
+
+          ([term,def]) =>
+            !q ||
+            term
+              .toLowerCase()
+              .includes(q) ||
+            def
+              .toLowerCase()
+              .includes(q)
+
+        );
+
+      glossaryGrid.innerHTML =
+        rows.length
+          ? rows
+              .map(
+                ([term,def]) => `
+
+                  <article class="glossary-item">
+
+                    <strong>
+                      ${term}
+                    </strong>
+
+                    <span>
+                      ${def}
+                    </span>
+
+                  </article>
+
+                `
+              )
+              .join('')
+          : `
+              <p>
+                Tidak ada istilah yang cocok.
+              </p>
+            `;
+
+    };
+
+  renderGlossary();
+
+  document
+    .getElementById(
+      'glossarySearch'
+    )
+    ?.addEventListener(
+
+      'input',
+
+      e =>
+        renderGlossary(
+          e.target.value
+        )
+
+    );
+
+})();
+</script>
 
 </body>
 </html>
